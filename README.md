@@ -34,3 +34,39 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+
+
+# ESLint Setup for Next.js + TypeScript Project
+
+This project uses ESLint with the **Flat Config** format to enforce code quality and consistency across the codebase.
+
+## 📦 Installed Dependencies
+
+- [ESLint](https://eslint.org/)
+- [@eslint/eslintrc](https://www.npmjs.com/package/@eslint/eslintrc)
+- `next/core-web-vitals` config
+- TypeScript support via `next/typescript`
+
+## 📁 ESLint Config Location
+
+The ESLint configuration is located in the root of the project:
+
+
+It uses Flat Config format, which is the latest recommended approach by ESLint.
+
+## 🧠 How It Works
+
+The config uses the `FlatCompat` helper from `@eslint/eslintrc` to load legacy config presets like:
+
+- `next/core-web-vitals`
+- `next/typescript`
+
+It also includes rules for `.ts` and `.tsx` files and ignores common folders like `.next`, `dist`, and `node_modules`.
+
+## 🛠️ Usage
+
+### Run Lint Check
+
+```bash
+npm run lint
