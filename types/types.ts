@@ -1,3 +1,29 @@
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { LucideIcon } from 'lucide-react';
+import { ComponentType, SVGProps } from 'react';
+
+export interface SubMenuItem {
+    title: string;
+    url: string;
+}
+
+export interface MenuItem {
+    title: string;
+    icon:
+        | { type: 'lucide'; component: LucideIcon }
+        | { type: 'fontawesome'; component: IconDefinition }
+        | { type: 'svg'; src: string }
+        | { type: 'inline-svg'; component: ComponentType<SVGProps<SVGSVGElement>> };
+    url: string;
+    isActive?: boolean;
+    items?: SubMenuItem[];
+}
+
+export interface AdminProfile{
+    name: string;
+    image: string;
+}
+
 export interface UserInfo {
     name: string;
 }
@@ -80,7 +106,7 @@ export interface Transaction {
     customer: string;
     type: string;
     channel: string;
-    status: "SUCCESSFUL" | "FAILED" | "PENDING";
+    status: 'SUCCESSFUL' | 'FAILED' | 'PENDING';
 }
 
 export interface TransactionTabsProps {
@@ -176,6 +202,12 @@ export interface CardCustomer {
     gender?: 'M' | 'F';
     date?: string;
     email?: string;
+}
+
+export interface CardCustomerTableProps {
+    customers: CardCustomer[];
+    currentPage: number;
+    itemsPerPage: number;
 }
 
 export interface CardTransaction {
@@ -315,10 +347,97 @@ export interface CustomerDetails {
     bankAccount: string;
     bankName: string;
     joinDate: string;
-  }
-  
-  export interface CustomerActionsProps {
+}
+
+export interface CustomerActionsProps {
     customer: CardCustomer | UnverifiedCustomer | PndCustomer;
     tableType: 'verified' | 'unverified' | 'pnd';
     onCustomerUpdate: () => void;
-  }
+}
+
+export interface TeamMember {
+    id: string;
+    image: string;
+    name: string;
+    email: string;
+    roles: Role[];
+    isActive: boolean;
+    loginStatus: 'Logged In' | 'Not Logged In';
+}
+
+export type Role = 'Owner' | 'Admin' | 'Customer Support';
+
+export interface TeamTableProps {
+    teamMembers: TeamMember[];
+    onRemoveMember: (id: string) => void;
+}
+
+export interface AddMemberCustomer {
+    id: string;
+    customerName: string;
+    age: number;
+    gender: 'M' | 'F';
+    date: string;
+    phoneNo: string;
+    email: string;
+    status: 'Active' | 'Inactive';
+}
+
+export interface AddMemberTableProps {
+    customers: AddMemberCustomer[];
+    currentPage: number;
+    itemsPerPage: number;
+    onAddMember: (customerId: string, role: Role) => void;
+}
+
+export interface AuditLog {
+    id: string;
+    member: string;
+    roles: Role[];
+    activity: string;
+    date: string;
+}
+
+export interface AuditLogTableProps {
+    auditLogs: AuditLog[];
+    currentPage: number;
+    itemsPerPage: number;
+    onViewDetails?: (id: string) => void;
+}
+
+export interface Rate {
+    id: string;
+    label: string;
+    rate: string;
+}
+
+export interface RateCardProps {
+    rate: Rate;
+    onUpdate: (id: string) => void;
+}
+
+export interface RateUpdateModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    rate: Rate | null;
+    onSave: (id: string, newRate: number) => void;
+}
+
+export interface UserProfile {
+    name: string;
+    email: string;
+    phoneNumber: string;
+    roles: Role[];
+    image: string;
+}
+
+export interface ChangePasswordModalProps {
+    isOpen: boolean;
+    onClose: () => void;
+    onSave: (newPassword: string) => void;
+}
+
+export interface Organization {
+    name: string;
+    id: string;
+}

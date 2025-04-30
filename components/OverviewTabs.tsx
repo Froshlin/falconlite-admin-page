@@ -5,7 +5,7 @@ import {
   Tabs,
   TabsList,
   TabsTrigger,
-} from "@/components/ui/tabs";
+} from '@/components/ui/tabs';
 import Filter from '@/public/filter.png';
 import Image from 'next/image';
 
@@ -30,7 +30,7 @@ export function OverviewTabs({ onTimeRangeChange }: OverviewTabsProps) {
     if (onTimeRangeChange) {
       onTimeRangeChange(selectedTab);
     }
-  }, []); 
+  }, [onTimeRangeChange, selectedTab]); 
 
   return (
     <div className="flex items-center gap-2 border-1 border-[#8B9DA4] px-4 py-4 rounded-[8px]">

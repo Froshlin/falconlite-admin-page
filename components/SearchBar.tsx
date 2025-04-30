@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Search } from 'lucide-react';
 import { SearchBarProps } from '@/types/types';
 
+// eslint-disable-next-line quotes
 export function SearchBar({ value, onChange, placeholder = "Search" }: SearchBarProps) {
   return (
     <div className="relative mb-4 border border-gray-400 rounded-[3px] w-full h-[50px]">

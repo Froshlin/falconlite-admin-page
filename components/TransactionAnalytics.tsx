@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
-import { TransactionDataPoint, TransactionAnalyticsProps } from '@/types/types';
+import { LineChart, Line, Tooltip, ResponsiveContainer } from 'recharts';
+import { TransactionAnalyticsProps } from '@/types/types';
 
 export const TransactionAnalytics: React.FC<TransactionAnalyticsProps> = ({
   transactionData,
@@ -12,7 +12,7 @@ export const TransactionAnalytics: React.FC<TransactionAnalyticsProps> = ({
   const formatCurrency = (value: number) => `$${value.toLocaleString()}`;
 
   return (
-    <Card className="col-span-2 shadow-none w-[709px] h-[376px] px-6 rounded-[29px]">
+    <Card className="col-span-2 shadow-none max-w-full w-[709px] h-[376px] px-6 rounded-[29px]">
       <CardContent className="bg-[url('/chart-bg.png')] bg-cover bg-center rounded-[29px]">
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={transactionData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>

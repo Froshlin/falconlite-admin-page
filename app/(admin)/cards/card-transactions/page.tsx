@@ -32,7 +32,7 @@ export default function CardTransactionsPage() {
       const transactionData = await fetchCardTransactions(timeRange, filter);
       const notificationData = await fetchCardNotification();
       const statsData = await fetchCardStats(timeRange);
-      console.log('Fetched Transactions:', transactionData); // Debug log
+      console.log('Fetched Transactions:', transactionData);
       setTransactions(transactionData);
       setNotification(notificationData);
       setStats(statsData);
@@ -60,7 +60,7 @@ export default function CardTransactionsPage() {
           transaction.status.toLowerCase().includes(query)
       );
     }
-    console.log('Filtered Transactions:', result); // Debug log
+    console.log('Filtered Transactions:', result);
     return result;
   }, [transactions, searchQuery, statusFilter]);
 
@@ -82,7 +82,7 @@ export default function CardTransactionsPage() {
   };
 
   return (
-    <div className="pt-10 px-6">
+    <div className="pt-10 py-6">
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-2xl font-semibold text-[#0A0E3F]">{filteredTransactions.length} Total Transactions</h1>

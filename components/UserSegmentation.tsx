@@ -15,7 +15,7 @@ export const UserSegmentation: React.FC<UserSegmentationProps> = ({ userSegmenta
 
 
   return (
-    <Card className="shadow-none w-[338px] h-[458px] flex flex-col justify-between rounded-[29px]">
+    <Card className="shadow-none max-w-full w-[338px] h-[458px] flex flex-col justify-between rounded-[29px]">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="text-sm font-medium text-gray-600">User Segmentation</CardTitle>
         <Select defaultValue="gender">

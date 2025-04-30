@@ -46,5 +46,5 @@ export const CardComponent: React.FC<CardComponentProps> = ({ stats }) => {
         </Card>
       ))}
     </div>
-  )
+  );
 };

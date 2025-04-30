@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { CardTransactionsData } from '@/types/types';
 import { fetchCardTransactionsData } from '@/lib/api';
 
@@ -13,7 +13,7 @@ const CardTransactionsSection = () => {
         const transactionsData = await fetchCardTransactionsData();
         setData(transactionsData);
       } catch (error) {
-        console.error("Error fetching card transaction data:", error);
+        console.error('Error fetching card transaction data:', error);
       } finally {
         setIsLoading(false);
       }

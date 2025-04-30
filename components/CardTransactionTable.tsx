@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 import Image from 'next/image';
 import { CheckCircle, MoreVertical } from 'lucide-react';
 import clipboard from '@/public/clipboard-icon.png';

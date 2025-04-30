@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { CheckCircle, MoreVertical, Trash2 } from 'lucide-react';
@@ -19,7 +19,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
 import { Modal } from '@/components/Modal';
 import { fetchCardDetails, deleteCard } from '@/lib/api';
 
@@ -28,6 +28,7 @@ export const CardTable = ({ cards, currentPage, itemsPerPage, onDeleteCard }: Ca
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedCards = cards.slice(startIndex, startIndex + itemsPerPage);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [selectedCardId, setSelectedCardId] = useState<string | null>(null);
   const [cardDetails, setCardDetails] = useState<CardDetails | null>(null);
   const [isDetailsModalOpen, setIsDetailsModalOpen] = useState(false);
@@ -70,6 +71,7 @@ export const CardTable = ({ cards, currentPage, itemsPerPage, onDeleteCard }: Ca
       setSelectedCardId(cardId);
       setIsDetailsModalOpen(true);
       setError(null);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (err) {
       setError('Failed to load card details');
     }
@@ -87,6 +89,7 @@ export const CardTable = ({ cards, currentPage, itemsPerPage, onDeleteCard }: Ca
           onDeleteCard(cardId);
         }
         setError(null);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
         setError('Failed to delete card');
       }

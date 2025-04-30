@@ -1,32 +1,30 @@
-"use client";
+'use client';
 
-import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { CheckCircle, MoreVertical } from "lucide-react";
-import verified from "@/public/verified-icon.png";
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { CheckCircle, MoreVertical } from 'lucide-react';
+import verified from '@/public/verified-icon.png';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
 import {
   CardCustomer,
-  UnverifiedCustomer,
-  PndCustomer,
   CustomerActionsProps,
-} from "@/types/types";
+} from '@/types/types';
 import {
   fetchCustomerDetails,
   addToPnd,
   deleteCustomer,
   updateCustomer,
-} from "@/lib/api";
-import Image from "next/image";
-import clipboard from "@/public/clipboard-icon.png";
-import { Modal } from "./Modal"; // Assuming the Modal component is in the same directory
+} from '@/lib/api';
+import Image from 'next/image';
+import clipboard from '@/public/clipboard-icon.png';
+import { Modal } from './Modal'; // Assuming the Modal component is in the same directory
 
 export const CustomerActions = ({
   customer,
@@ -36,6 +34,7 @@ export const CustomerActions = ({
   const [isViewModalOpen, setIsViewModalOpen] = useState(false);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const [customerDetails, setCustomerDetails] = useState<any>(null);
   const [editFormData, setEditFormData] = useState<Partial<CardCustomer>>({});
   const [copiedId, setCopiedId] = useState<string | null>(null);
@@ -81,14 +80,14 @@ export const CustomerActions = ({
   };
 
   const getStatusTag = () => {
-    if (tableType === "verified") {
+    if (tableType === 'verified') {
       return (
         <span className="inline-flex items-center gap-1 bg-[#36C6F3] text-white px-2 py-1 rounded">
           Verified
           <Image src={verified} alt="verified icon" width={16} height={16} />
         </span>
       );
-    } else if (tableType === "unverified") {
+    } else if (tableType === 'unverified') {
       return (
         <span className="inline-flex items-center gap-1 bg-gray-200 text-gray-600 px-2 py-1 rounded">
           Unverified
@@ -112,7 +111,7 @@ export const CustomerActions = ({
         <DropdownMenuContent>
           <DropdownMenuItem onClick={handleView}>View</DropdownMenuItem>
           <DropdownMenuItem onClick={handleEdit}>Edit</DropdownMenuItem>
-          {tableType !== "pnd" && (
+          {tableType !== 'pnd' && (
             <DropdownMenuItem onClick={handleAddToPnd}>
               Add to No-Debit
             </DropdownMenuItem>
@@ -138,9 +137,9 @@ export const CustomerActions = ({
               <div className="flex items-center gap-2">
                 <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-xl">
                   {customerDetails.customerName
-                    .split(" ")
+                    .split(' ')
                     .map((n: string) => n[0])
-                    .join("")}
+                    .join('')}
                 </div>
                 <div>
                   <h3 className="font-semibold">
@@ -197,7 +196,7 @@ export const CustomerActions = ({
                     {customerDetails.phoneNumber}
                   </p>
                   <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
-                    {copiedId === "phone" ? (
+                    {copiedId === 'phone' ? (
                       <CheckCircle className="text-[#36C6F3]" size={16} />
                     ) : (
                       <Image
@@ -207,7 +206,7 @@ export const CustomerActions = ({
                         width={25}
                         height={25}
                         onClick={() =>
-                          handleCopy(customerDetails.phoneNumber, "phone")
+                          handleCopy(customerDetails.phoneNumber, 'phone')
                         }
                       />
                     )}
@@ -231,7 +230,7 @@ export const CustomerActions = ({
                     {customerDetails.uniqueId}
                   </p>
                   <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
-                    {copiedId === "uniqueId" ? (
+                    {copiedId === 'uniqueId' ? (
                       <CheckCircle className="text-[#36C6F3]" size={16} />
                     ) : (
                       <Image
@@ -241,7 +240,7 @@ export const CustomerActions = ({
                         width={25}
                         height={25}
                         onClick={() =>
-                          handleCopy(customerDetails.uniqueId, "uniqueId")
+                          handleCopy(customerDetails.uniqueId, 'uniqueId')
                         }
                       />
                     )}
@@ -257,7 +256,7 @@ export const CustomerActions = ({
                     {customerDetails.bankAccount}
                   </p>
                   <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
-                    {copiedId === "bankAccount" ? (
+                    {copiedId === 'bankAccount' ? (
                       <CheckCircle className="text-[#36C6F3]" size={16} />
                     ) : (
                       <Image
@@ -267,7 +266,7 @@ export const CustomerActions = ({
                         width={25}
                         height={25}
                         onClick={() =>
-                          handleCopy(customerDetails.bankAccount, "bankAccount")
+                          handleCopy(customerDetails.bankAccount, 'bankAccount')
                         }
                       />
                     )}
@@ -298,7 +297,7 @@ export const CustomerActions = ({
             <Label htmlFor="customerName">Name</Label>
             <Input
               id="customerName"
-              value={editFormData.customerName || ""}
+              value={editFormData.customerName || ''}
               onChange={(e) =>
                 setEditFormData({
                   ...editFormData,
@@ -311,7 +310,7 @@ export const CustomerActions = ({
             <Label htmlFor="email">Email</Label>
             <Input
               id="email"
-              value={editFormData.email || ""}
+              value={editFormData.email || ''}
               onChange={(e) =>
                 setEditFormData({ ...editFormData, email: e.target.value })
               }
@@ -321,7 +320,7 @@ export const CustomerActions = ({
             <Label htmlFor="phoneNo">Phone Number</Label>
             <Input
               id="phoneNo"
-              value={editFormData.phoneNo || ""}
+              value={editFormData.phoneNo || ''}
               onChange={(e) =>
                 setEditFormData({ ...editFormData, phoneNo: e.target.value })
               }
@@ -331,7 +330,7 @@ export const CustomerActions = ({
             <Label htmlFor="country">Country</Label>
             <Input
               id="country"
-              value={editFormData.country || ""}
+              value={editFormData.country || ''}
               onChange={(e) =>
                 setEditFormData({ ...editFormData, country: e.target.value })
               }

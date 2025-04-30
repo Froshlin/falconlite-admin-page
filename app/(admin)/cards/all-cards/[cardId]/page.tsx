@@ -12,7 +12,7 @@ import { CardTransaction } from '@/types/types';
 export default function CardTransactionsPage() {
   const { cardId } = useParams();
   const [transactions, setTransactions] = useState<CardTransaction[]>([]);
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(7);
   const [timeRange, setTimeRange] = useState('today');

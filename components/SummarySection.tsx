@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { SummaryData } from '@/types/types';
 import { fetchSummaryData } from '@/lib/api';
 
@@ -13,7 +13,7 @@ const SummarySection = () => {
         const summaryData = await fetchSummaryData();
         setData(summaryData);
       } catch (error) {
-        console.error("Error fetching summary data:", error);
+        console.error('Error fetching summary data:', error);
       } finally {
         setIsLoading(false);
       }

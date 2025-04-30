@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import React, { useState, useEffect, forwardRef } from 'react';
@@ -5,7 +7,7 @@ import {
   Tabs,
   TabsList,
   TabsTrigger,
-} from "@/components/ui/tabs";
+} from '@/components/ui/tabs';
 import Filter from '@/public/filter.png';
 import Image from 'next/image';
 import { X, Calendar } from 'lucide-react';

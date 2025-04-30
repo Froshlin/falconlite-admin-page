@@ -59,7 +59,7 @@ export default function CardCustomersPage() {
   };
 
   return (
-    <div className="pt-10 px-6">
+    <div className="pt-10 py-6">
       <div className="flex justify-between items-center mb-8">
         {/* Customer Count */}
         <div>

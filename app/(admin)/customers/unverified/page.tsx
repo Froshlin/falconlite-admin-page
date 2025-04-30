@@ -16,7 +16,7 @@ export default function UnverifiedCustomersPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(7);
   const [timeRange, setTimeRange] = useState('today');
-  const [filter, setFilter] = useState<CustomerFilter>({});
+  const [filter] = useState<CustomerFilter>({});
 
   useEffect(() => {
     const loadData = async () => {
@@ -61,7 +61,7 @@ export default function UnverifiedCustomersPage() {
   };
 
   return (
-    <div className="pt-10 px-6">
+    <div className="pt-10 py-6">
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-2xl font-semibold text-[#0A0E3F]">{filteredCustomers.length} Customers</h1>

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { NubanTransactionsData } from '@/types/types';
 import { fetchNubanTransactionsData } from '@/lib/api';
 
@@ -13,7 +13,7 @@ const NubanTransactionsSection = () => {
         const transactionsData = await fetchNubanTransactionsData();
         setData(transactionsData);
       } catch (error) {
-        console.error("Error fetching Nuban transaction data:", error);
+        console.error('Error fetching Nuban transaction data:', error);
       } finally {
         setIsLoading(false);
       }

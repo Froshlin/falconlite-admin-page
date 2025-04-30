@@ -18,7 +18,7 @@ export const TopPlatforms: React.FC<TopPlatformsProps> = ({ topPlatforms }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Card className="shadow-none w-full h-[295px] rounded-[29px] bg-[var(--card)]">
+    <Card className="shadow-none max-w-full h-[295px] rounded-[29px] bg-[var(--card)]">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="text-sm font-medium text-[var(--muted-foreground)]">
           Top Platforms
@@ -80,9 +80,9 @@ export const TopPlatforms: React.FC<TopPlatformsProps> = ({ topPlatforms }) => {
                   
                 </div>
               <div className=' bg-[#FBFBFB] rounded-[6px] py-2 px-2 flex items-center justify-between w-full z-10' style={{
-                backgroundImage: "url('/line-background.png')",
-                backgroundRepeat: "no-repeat",
-                backgroundPosition: "center",
+                backgroundImage: 'url(\'/line-background.png\')',
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
               }}>
                 <div className='flex items-center gap-1'>
                   {platform.image ? (

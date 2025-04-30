@@ -1,12 +1,12 @@
 // app/overview/page.tsx
-"use client";
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { CardComponent } from "@/components/CardComponent";
-import { OverviewTabs } from "@/components/OverviewTabs";
-import { TransactionAnalytics } from "@/components/TransactionAnalytics";
-import { UserSegmentation } from "@/components/UserSegmentation";
-import { TopPlatforms } from "@/components/TopPlatforms";
+import React, { useState, useEffect } from 'react';
+import { CardComponent } from '@/components/CardComponent';
+import { OverviewTabs } from '@/components/OverviewTabs';
+import { TransactionAnalytics } from '@/components/TransactionAnalytics';
+import { UserSegmentation } from '@/components/UserSegmentation';
+import { TopPlatforms } from '@/components/TopPlatforms';
 import {
   Stat,
   UserInfo,
@@ -14,7 +14,7 @@ import {
   TransactionDataPoint,
   UserSegmentation as UserSegmentationType,
   TopPlatform,
-} from "@/types/types";
+} from '@/types/types';
 import {
   fetchStats,
   fetchUserInfo,
@@ -22,17 +22,17 @@ import {
   fetchNubanTransactionData,
   fetchUserSegmentation,
   fetchTopPlatforms,
-} from "@/lib/api";
-import SummarySection from "@/components/SummarySection";
-import CardTransactionsSection from "@/components/CardTransactionsSection";
-import NubanTransactionsSection from "@/components/NubanTransactionsSection";
-import NubanAccountsSection from "@/components/NubanAccountsSection";
+} from '@/lib/api';
+import SummarySection from '@/components/SummarySection';
+import CardTransactionsSection from '@/components/CardTransactionsSection';
+import NubanTransactionsSection from '@/components/NubanTransactionsSection';
+import NubanAccountsSection from '@/components/NubanAccountsSection';
 
 const OverviewPage = () => {
   const [stats, setStats] = useState<Stat[]>([]);
-  const [userInfo, setUserInfo] = useState<UserInfo>({ name: "" });
+  const [userInfo, setUserInfo] = useState<UserInfo>({ name: '' });
   const [notification, setNotification] = useState<Notification>({
-    message: "",
+    message: '',
   });
   const [transactionData, setTransactionData] = useState<
     TransactionDataPoint[]
@@ -41,7 +41,7 @@ const OverviewPage = () => {
     UserSegmentationType[]
   >([]);
   const [topPlatforms, setTopPlatforms] = useState<TopPlatform[]>([]);
-  const [selectedTimeRange, setSelectedTimeRange] = useState("today");
+  const [selectedTimeRange, setSelectedTimeRange] = useState('today');
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -70,8 +70,9 @@ const OverviewPage = () => {
         setTransactionData(transactionData);
         setUserSegmentation(userSegmentationData);
         setTopPlatforms(topPlatformsData);
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       } catch (err) {
-        setError("Failed to load data. Please try again later.");
+        setError('Failed to load data. Please try again later.');
       } finally {
         setIsLoading(false);
       }
@@ -86,9 +87,9 @@ const OverviewPage = () => {
 
   const getGreeting = () => {
     const hour = new Date().getHours();
-    if (hour < 12) return "Good Morning";
-    if (hour < 17) return "Good Afternoon";
-    return "Good Evening";
+    if (hour < 12) return 'Good Morning';
+    if (hour < 17) return 'Good Afternoon';
+    return 'Good Evening';
   };
 
   if (isLoading) {
@@ -101,7 +102,7 @@ const OverviewPage = () => {
 
   return (
     <div className="pt-10">
-      <div className="flex justify-between items-center">
+      <div className="flex flex-col lg:flex-row lg:gap-0 gap-6 lg:items-center justify-between">
         <div className="flex flex-col gap-3">
           <h1 className="font-semibold text-2xl text-[#0E3B4C]">
             {getGreeting()}, {userInfo.name}!
@@ -116,7 +117,7 @@ const OverviewPage = () => {
       <div className="py-8 w-full">
         <CardComponent stats={stats} />
       </div>
-      <div className="py-8 flex justify-between gap-6">
+      <div className="py-8 flex flex-col xl:flex-row justify-between gap-6">
         <div className="flex flex-col gap-14">
           <TransactionAnalytics
             transactionData={transactionData}
@@ -127,7 +128,7 @@ const OverviewPage = () => {
             title="Card Transaction Analytics"
           />
         </div>
-        <div className="flex flex-col gap-14">
+        <div className="flex flex-row xl:flex-col gap-14">
           <UserSegmentation userSegmentation={userSegmentation} />
           <TopPlatforms topPlatforms={topPlatforms} />
         </div>

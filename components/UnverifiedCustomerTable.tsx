@@ -8,7 +8,7 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table";
+} from '@/components/ui/table';
 import { UnverifiedCustomerTableProps } from '@/types/types';
 import { CustomerActions } from './CustomerActions';
 

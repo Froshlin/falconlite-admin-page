@@ -1,25 +1,23 @@
+body{
+  background-color: white;
+}
+
+/* For active state (#36C6F3) */
+.svg-active {
+  filter: hue-rotate(193deg) brightness(2.5) saturate(2);
+}
+
+/* For inactive state (#8B9DA4) */
+.svg-inactive {
+  filter: hue-rotate(190deg) brightness(2.7) saturate(0.3);
+}
+
 .custom-scrollbar::-webkit-scrollbar {
   width: 7px;
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 4px;
 }
 
-/* 
-  .custom-scrollbar::-webkit-scrollbar-thumb {
-    
-    border-radius: 4px;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent !important;
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-button {
-    display: none !important;
-  }
-  
-  
-  .custom-scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
-  } */
+.switch-thumb {
+  transform: translateX(10px);
+}

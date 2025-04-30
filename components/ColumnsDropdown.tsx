@@ -13,7 +13,6 @@ import { ColumnsDropdownProps } from '@/types/types';
 export function ColumnsDropdown({
   itemsPerPage,
   onItemsPerPageChange,
-  totalRows,
 }: ColumnsDropdownProps) {
   return (
     <div>

@@ -1,18 +1,20 @@
-"use client";
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
 
-import React, { useState, useEffect, forwardRef } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Filter from "@/public/filter.png";
-import Image from "next/image";
-import { X, Calendar } from "lucide-react";
+import React, { useState, useEffect, forwardRef } from 'react';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Filter from '@/public/filter.png';
+import Image from 'next/image';
+import { X, Calendar } from 'lucide-react';
 import {
   TransactionFilter,
   TransactionFilterModalProps,
   FilterOptions,
-} from "@/types/types";
-import { fetchFilterOptions } from "@/lib/api";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+} from '@/types/types';
+import { fetchFilterOptions } from '@/lib/api';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 // Custom input component for DatePicker with clickable calendar icon
 const CustomDateInput = forwardRef(({ value, onClick }: any, ref: any) => (
@@ -31,7 +33,7 @@ const CustomDateInput = forwardRef(({ value, onClick }: any, ref: any) => (
     />
   </div>
 ));
-CustomDateInput.displayName = "CustomDateInput";
+CustomDateInput.displayName = 'CustomDateInput';
 
 export const TransactionFilterModal = ({
   timeRange,
@@ -42,16 +44,16 @@ export const TransactionFilterModal = ({
   onFilterChange,
 }: TransactionFilterModalProps) => {
   const [selectedTab, setSelectedTab] = useState(timeRange);
-  const [selectedFilter, setSelectedFilter] = useState(statusFilter || "all");
+  const [selectedFilter, setSelectedFilter] = useState(statusFilter || 'all');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filter, setFilter] = useState<TransactionFilter>({
-    dateRange: "",
-    startDate: "",
-    endDate: "",
-    cardId: "",
-    currencyType: "",
-    status: "",
-    negativeBalance: "",
+    dateRange: '',
+    startDate: '',
+    endDate: '',
+    cardId: '',
+    currencyType: '',
+    status: '',
+    negativeBalance: '',
   });
   const [filterOptions, setFilterOptions] = useState<FilterOptions>({
     currencyTypes: [],
@@ -75,7 +77,7 @@ export const TransactionFilterModal = ({
   const handleFilterChange = (filter: string) => {
     setSelectedFilter(filter);
     if (setStatusFilter) {
-      setStatusFilter(filter === "all" ? null : filter);
+      setStatusFilter(filter === 'all' ? null : filter);
     }
   };
 
@@ -92,9 +94,9 @@ export const TransactionFilterModal = ({
 
   // Format date to mm/dd/yyyy
   const formatDate = (date: Date | null): string => {
-    if (!date) return "";
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
+    if (!date) return '';
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
     const year = date.getFullYear();
     return `${month}/${day}/${year}`;
   };
@@ -102,7 +104,7 @@ export const TransactionFilterModal = ({
   // Parse the string date back to a Date object for DatePicker
   const parseDate = (dateString: string): Date | null => {
     if (!dateString) return null;
-    const [month, day, year] = dateString.split("/").map(Number);
+    const [month, day, year] = dateString.split('/').map(Number);
     const date = new Date(year, month - 1, day);
     return isNaN(date.getTime()) ? null : date;
   };
@@ -124,7 +126,7 @@ export const TransactionFilterModal = ({
   }, [timeRange]);
 
   useEffect(() => {
-    setSelectedFilter(statusFilter || "all");
+    setSelectedFilter(statusFilter || 'all');
   }, [statusFilter]);
 
   return (
@@ -207,41 +209,41 @@ export const TransactionFilterModal = ({
                 </h3>
                 <div className="flex gap-2">
                   <button
-                    onClick={() => handleDateRangeClick("last-week")}
+                    onClick={() => handleDateRangeClick('last-week')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
-                      filter.dateRange === "last-week"
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.dateRange === 'last-week'
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     Last Week
                   </button>
                   <button
-                    onClick={() => handleDateRangeClick("last-month")}
+                    onClick={() => handleDateRangeClick('last-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
-                      filter.dateRange === "last-month"
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.dateRange === 'last-month'
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     Last Month
                   </button>
                   <button
-                    onClick={() => handleDateRangeClick("last-2-month")}
+                    onClick={() => handleDateRangeClick('last-2-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
-                      filter.dateRange === "last-2-month"
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.dateRange === 'last-2-month'
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     Last 2 Month
                   </button>
                   <button
-                    onClick={() => handleDateRangeClick("last-3-month")}
+                    onClick={() => handleDateRangeClick('last-3-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
-                      filter.dateRange === "last-3-month"
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.dateRange === 'last-3-month'
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     Last 3 Month
@@ -256,7 +258,7 @@ export const TransactionFilterModal = ({
                     Start Date
                   </label>
                   <DatePicker
-                    selected={parseDate(filter.startDate || "")}
+                    selected={parseDate(filter.startDate || '')}
                     onChange={handleStartDateChange}
                     placeholderText="mm/dd/yyyy"
                     customInput={<CustomDateInput />}
@@ -268,7 +270,7 @@ export const TransactionFilterModal = ({
                     End Date
                   </label>
                   <DatePicker
-                    selected={parseDate(filter.endDate || "")}
+                    selected={parseDate(filter.endDate || '')}
                     onChange={handleEndDateChange}
                     placeholderText="mm/dd/yyyy"
                     customInput={<CustomDateInput />}
@@ -300,41 +302,41 @@ export const TransactionFilterModal = ({
                 </h3>
                 <div className="flex justify-between items-center gap-2">
                   <button
-                    onClick={() => handleStatusClick("")}
+                    onClick={() => handleStatusClick('')}
                     className={`cursor-pointer w-[110px] h-[31px] px-4 text-sm rounded border ${
-                      filter.status === ""
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.status === ''
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     All
                   </button>
                   <button
-                    onClick={() => handleStatusClick("FAILED")}
+                    onClick={() => handleStatusClick('FAILED')}
                     className={`cursor-pointer w-[110px] h-[31px] px-4 text-sm rounded border ${
-                      filter.status === "FAILED"
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.status === 'FAILED'
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     Terminated
                   </button>
                   <button
-                    onClick={() => handleStatusClick("SUCCESSFUL")}
+                    onClick={() => handleStatusClick('SUCCESSFUL')}
                     className={`cursor-pointer w-[110px] h-[31px] px-4 text-sm rounded border ${
-                      filter.status === "SUCCESSFUL"
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.status === 'SUCCESSFUL'
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     Active
                   </button>
                   <button
-                    onClick={() => handleStatusClick("FROZEN")}
+                    onClick={() => handleStatusClick('FROZEN')}
                     className={`cursor-pointer w-[110px] h-[31px] px-4 text-sm rounded border ${
-                      filter.status === "FROZEN"
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.status === 'FROZEN'
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     Frozen

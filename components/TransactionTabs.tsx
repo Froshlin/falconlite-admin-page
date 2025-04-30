@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -5,7 +6,7 @@ import {
   Tabs,
   TabsList,
   TabsTrigger,
-} from "@/components/ui/tabs";
+} from '@/components/ui/tabs';
 import Filter from '@/public/filter.png';
 import Image from 'next/image';
 import {
@@ -13,7 +14,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+} from '@/components/ui/dropdown-menu';
 import { TransactionTabsProps } from '@/types/types';
 
 export function TransactionTabs({ onTimeRangeChange, onFilterChange }: TransactionTabsProps) {
@@ -38,7 +39,7 @@ export function TransactionTabs({ onTimeRangeChange, onFilterChange }: Transacti
     if (onTimeRangeChange) {
       onTimeRangeChange(selectedTab);
     }
-  }, []);
+  }, [onTimeRangeChange, selectedTab]);
 
   return (
     <div className="flex items-center gap-2 border border-[#8B9DA4] px-4 py-4 rounded-[8px]">

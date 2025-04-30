@@ -1,15 +1,17 @@
-"use client";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+'use client';
 
-import React, { useState, useEffect, forwardRef } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Filter from "@/public/filter.png";
-import Image from "next/image";
-import { X, Calendar } from "lucide-react";
-import { CustomerFilter, CustomerFilterModalProps } from "@/types/types";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import React, { useState, useEffect, forwardRef } from 'react';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import Filter from '@/public/filter.png';
+import Image from 'next/image';
+import { X, Calendar } from 'lucide-react';
+import { CustomerFilter, CustomerFilterModalProps } from '@/types/types';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 // Custom input component for DatePicker with clickable calendar icon
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const CustomDateInput = forwardRef(({ value, onClick }: any, ref: any) => (
   <div className="relative">
     <input
@@ -26,7 +28,7 @@ const CustomDateInput = forwardRef(({ value, onClick }: any, ref: any) => (
     />
   </div>
 ));
-CustomDateInput.displayName = "CustomDateInput";
+CustomDateInput.displayName = 'CustomDateInput';
 
 export const CustomerFilterModal = ({
   timeRange,
@@ -36,12 +38,12 @@ export const CustomerFilterModal = ({
   const [selectedTab, setSelectedTab] = useState(timeRange);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [filter, setFilter] = useState<CustomerFilter>({
-    dateRange: "",
-    startDate: "",
-    endDate: "",
-    firstName: "",
-    lastName: "",
-    email: "",
+    dateRange: '',
+    startDate: '',
+    endDate: '',
+    firstName: '',
+    lastName: '',
+    email: '',
   });
 
   const handleTabChange = (value: string) => {
@@ -62,9 +64,9 @@ export const CustomerFilterModal = ({
 
   // Format date to mm/dd/yyyy
   const formatDate = (date: Date | null): string => {
-    if (!date) return "";
-    const month = String(date.getMonth() + 1).padStart(2, "0");
-    const day = String(date.getDate()).padStart(2, "0");
+    if (!date) return '';
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
     const year = date.getFullYear();
     return `${month}/${day}/${year}`;
   };
@@ -72,7 +74,7 @@ export const CustomerFilterModal = ({
   // Parse the string date back to a Date object for DatePicker
   const parseDate = (dateString: string): Date | null => {
     if (!dateString) return null;
-    const [month, day, year] = dateString.split("/").map(Number);
+    const [month, day, year] = dateString.split('/').map(Number);
     const date = new Date(year, month - 1, day);
     return isNaN(date.getTime()) ? null : date;
   };
@@ -169,41 +171,41 @@ export const CustomerFilterModal = ({
                 </h3>
                 <div className="flex gap-2">
                   <button
-                    onClick={() => handleDateRangeClick("last-week")}
+                    onClick={() => handleDateRangeClick('last-week')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
-                      filter.dateRange === "last-week"
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.dateRange === 'last-week'
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     Last Week
                   </button>
                   <button
-                    onClick={() => handleDateRangeClick("last-month")}
+                    onClick={() => handleDateRangeClick('last-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
-                      filter.dateRange === "last-month"
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.dateRange === 'last-month'
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     Last Month
                   </button>
                   <button
-                    onClick={() => handleDateRangeClick("last-2-month")}
+                    onClick={() => handleDateRangeClick('last-2-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
-                      filter.dateRange === "last-2-month"
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.dateRange === 'last-2-month'
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     Last 2 Month
                   </button>
                   <button
-                    onClick={() => handleDateRangeClick("last-3-month")}
+                    onClick={() => handleDateRangeClick('last-3-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
-                      filter.dateRange === "last-3-month"
-                        ? "bg-[#36C6F3] text-white"
-                        : "bg-[rgba(135,140,141,0.1)]"
+                      filter.dateRange === 'last-3-month'
+                        ? 'bg-[#36C6F3] text-white'
+                        : 'bg-[rgba(135,140,141,0.1)]'
                     } text-[#878C8D]`}
                   >
                     Last 3 Month
@@ -218,7 +220,7 @@ export const CustomerFilterModal = ({
                     Start Date
                   </label>
                   <DatePicker
-                    selected={parseDate(filter.startDate || "")}
+                    selected={parseDate(filter.startDate || '')}
                     onChange={handleStartDateChange}
                     placeholderText="mm/dd/yyyy"
                     customInput={<CustomDateInput />}
@@ -230,7 +232,7 @@ export const CustomerFilterModal = ({
                     End Date
                   </label>
                   <DatePicker
-                    selected={parseDate(filter.endDate || "")}
+                    selected={parseDate(filter.endDate || '')}
                     onChange={handleEndDateChange}
                     placeholderText="mm/dd/yyyy"
                     customInput={<CustomDateInput />}
