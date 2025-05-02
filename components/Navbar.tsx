@@ -72,7 +72,7 @@ const Navbar = () => {
   const isSingleCardTransactions = pathname.startsWith('/cards/all-cards/') && currentPath !== 'all-cards';
 
   return (
-    <div className='flex justify-between items-center h-[117px] px-14'>
+    <div className='flex justify-between items-center h-[117px] md:px-14 px-4'>
       {/* Path Title with Back Button */}
       <div className='flex items-center gap-1'>
         {isSingleCardTransactions && (
@@ -96,7 +96,7 @@ const Navbar = () => {
             </svg>
           </button>
         )}
-        <div className='font-semibold text-[#A0B6C0]'>{displayTitle}</div>
+        <div className='font-semibold text-[#A0B6C0] md:block hidden'>{displayTitle}</div>
       </div>
       {/* Admin Profile */}
       <div className='flex items-center gap-3.5'>

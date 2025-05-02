@@ -35,7 +35,7 @@ export default function DashboardLayout({
           <div className={`h-screen flex flex-col ${montserrat.className}`}>
             {/* Container Holding Navbar and Logo */}
             <div className="flex fixed z-2200 w-full bg-white border-b border-[#D9D9D9]">
-              <div className="w-full md:w-[20%] bg-[#EEF8FE] py-4 flex items-center px-4">
+              <div className="md:w-[20%] bg-[#EEF8FE] py-4 flex items-center px-4">
                 {/* Hamburger Icon */}
                 <button
                   className="md:hidden focus:outline-none bg-white px-1.5 py-0.5 rounded-sm"
@@ -61,7 +61,7 @@ export default function DashboardLayout({
               </div>
 
               {/* Navbar Section */}
-              <div className="w-[80%] bg-white">
+              <div className="w-[80%] md:bg-white bg-[#EEF8FE]">
                 <Navbar />
               </div>
             </div>
@@ -73,7 +73,7 @@ export default function DashboardLayout({
             <div className="flex pt-[110px]">
               {/* Menu Section */}
               <div
-                className={`fixed inset-y-0 left-0 pt-28 z-40 w-full md:w-[20%] bg-[#EEF8FE] h-screen flex flex-col transform transition-transform duration-300 ease-in-out ${
+                className={`fixed inset-y-0 left-0 pt-28 z-40 w-full md:w-[20%] bg-[#EEF8FE] flex flex-col transform transition-transform duration-300 ease-in-out ${
                   isMenuOpen ? 'translate-x-0' : '-translate-x-full'
                 } md:translate-x-0`}
               >

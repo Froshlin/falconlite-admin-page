@@ -68,9 +68,9 @@ export default function TransactionsPage() {
 
   return (
     <div className="pt-10">
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex md:flex-row md:gap-6 gap-0 flex-col justify-between md:items-center items-start mb-8">
         {/* Transaction Count */}
-        <div className="">
+        <div>
           <h1 className="text-2xl font-semibold">
             {filteredTransactions.length} Transactions
           </h1>
@@ -80,7 +80,7 @@ export default function TransactionsPage() {
         </div>
 
         {/* Tabs and Filter */}
-        <div>
+        <div className='w-full md:w-fit'>
           <TransactionTabs
             onTimeRangeChange={setTimeRange}
             onFilterChange={setFilter}
