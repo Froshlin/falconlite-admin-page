@@ -160,7 +160,6 @@ const Menu = () => {
               item.url === '#' ? `/${item.title.toLowerCase()}` : item.url
             ));
 
-        // Extract the icon component
         const LucideComponent =
           item.icon.type === 'lucide' ? item.icon.component : null;
         const FontAwesomeComponent =

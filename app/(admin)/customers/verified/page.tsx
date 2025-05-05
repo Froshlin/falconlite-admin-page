@@ -76,7 +76,7 @@ export default function VerifiedCustomersPage() {
 
   return (
     <div className="pt-10 py-6">
-      <div className="flex justify-between items-center flex-wrap mb-8">
+      <div className="flex justify-between items-center flex-wrap gap-4 mb-8">
         <div>
           <h1 className="text-2xl font-semibold text-[#0A0E3F]">{filteredCustomers.length} Customers</h1>
           {notification && (

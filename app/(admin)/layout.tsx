@@ -38,7 +38,7 @@ export default function DashboardLayout({
               <div className="md:w-[20%] bg-[#EEF8FE] py-4 flex items-center px-4">
                 {/* Hamburger Icon */}
                 <button
-                  className="md:hidden focus:outline-none bg-white px-1.5 py-0.5 rounded-sm"
+                  className="md:hidden focus:outline-none bg-white px-1.5 py-0.5 rounded-sm cursor-pointer"
                   onClick={toggleMenu}
                   aria-label="Toggle menu"
                 >

@@ -68,7 +68,7 @@ export default function TransactionsPage() {
 
   return (
     <div className="pt-10">
-      <div className="flex md:flex-row md:gap-6 gap-0 flex-col justify-between md:items-center items-start mb-8">
+      <div className="flex justify-between items-center flex-wrap gap-4 mb-8">
         {/* Transaction Count */}
         <div>
           <h1 className="text-2xl font-semibold">
@@ -105,7 +105,7 @@ export default function TransactionsPage() {
       </div>
 
       {/* Pagination and Columns */}
-      <div className="flex items-center justify-between my-6">
+      <div className="flex items-center justify-between flex-wrap gap-6 my-6">
         <PaginationControls
           currentPage={currentPage}
           totalPages={totalPages}

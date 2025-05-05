@@ -42,7 +42,7 @@ export function TransactionTabs({ onTimeRangeChange, onFilterChange }: Transacti
   }, [onTimeRangeChange, selectedTab]);
 
   return (
-    <div className="flex items-center gap-2 border border-[#8B9DA4] [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
+    <div className="flex items-center gap-2 border border-[#8B9DA4] min-[480px]:w-fit [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
       {/* Filter Image and Dropdown */}
       <DropdownMenu>
         <DropdownMenuTrigger>
