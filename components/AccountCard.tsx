@@ -16,7 +16,7 @@ export function AccountCard({ card }: AccountCardProps) {
       <div>
         <p className="font-medium text-sm text-[#8B9DA4] py-2">{card.title}</p>
         <div className="flex items-center gap-2">
-          <h3 className="text-[28px] font-semibold">{card.value}</h3>
+          <h3 className="lg:text-[28px] md:text-[19px] [@media(max-width:390px)]:text-2xl font-semibold">{card.value}</h3>
           <div className="flex items-center gap-1 text-[#0FD582]">
             <TrendingUp size={16} />
             <span className="text-[11px]">{card.change}</span>

@@ -33,7 +33,7 @@ export function OverviewTabs({ onTimeRangeChange }: OverviewTabsProps) {
   }, [onTimeRangeChange, selectedTab]); 
 
   return (
-    <div className="flex items-center gap-2 border-1 border-[#8B9DA4] px-4 py-4 rounded-[8px]">
+    <div className="flex items-center gap-2 border-1 border-[#8B9DA4] min-[480px]:w-fit [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
       <Tabs value={selectedTab} onValueChange={handleTabChange} className="w-auto">
         <TabsList className="flex w-auto bg-transparent p-0">
           <TabsTrigger
@@ -63,7 +63,14 @@ export function OverviewTabs({ onTimeRangeChange }: OverviewTabsProps) {
         </TabsList>
       </Tabs>
       {/* Filter Icon */}
-      <Image className='cursor-pointer' src={Filter} alt='filter-icon' width={27} height={27} />
+      <Image 
+        className='cursor-pointer w-[27px]'
+        src={Filter}
+        style={{height: '27px', maxWidth: '27px'}} 
+        alt='filter-icon' 
+        width={27} 
+        height={27} 
+      />
     </div>
   );
 }

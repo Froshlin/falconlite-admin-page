@@ -59,7 +59,7 @@ export default function CardTransactionsPage() {
   return (
     <div className="flex-1 p-6 h-screen">
       {/* Time Range Filter */}
-      <div className="flex justify-end items-center mb-8">
+      <div className="flex md:justify-end justify-start items-center mb-8">
         <TimeRangeFilter
           timeRange={timeRange}
           setTimeRange={setTimeRange}

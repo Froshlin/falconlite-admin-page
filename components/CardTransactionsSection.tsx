@@ -35,25 +35,25 @@ const CardTransactionsSection = () => {
       <CardHeader className="px-0 gap-0">
         <CardTitle className="text-xl py-6 px-6 border-b border-gray-[#8B9DA4]">Card Transactions</CardTitle>
       </CardHeader>
-      <CardContent>
-        <div className="grid grid-cols-4 gap-4">
+      <CardContent className='sm:px-0 px-1'>
+        <div className="grid grid-cols-4 sm:gap-1 gap-0">
           {data.categories.map((category, index) => (
-            <div key={index} className={`px-4 pt-4 ${index !== data.categories.length - 1 ? 'border-r border-[#D3D3D3]' : ''}`}>
+            <div key={index} className={`xl:px-4 px-1 pt-4 ${index !== data.categories.length - 1 ? 'border-r border-[#D3D3D3]' : ''}`}>
               <p className="text-[#8B9DA4] mb-3">{category.label}</p>
               <p className="text-xl font-bold text-[#0E3B4C]">{category.count}</p>
               
               <div>
                 <div className="flex justify-between text-sm border-b border-[#D3D3D3] text-[#0E3B4C] py-1 pt-6">
-                  <span className="font-medium">Amount</span>
-                  <span className="font-medium">{category.amount}</span>
+                  <span className="font-medium lg:text-[12px] text-[9px]">Amount</span>
+                  <span className="font-medium lg:text-[12px] text-[9px]">{category.amount}</span>
                 </div>
                 <div className="flex justify-between text-sm border-b border-[#D3D3D3] text-[#0E3B4C] py-1 pt-6">
-                  <span className="font-medium">Charge</span>
-                  <span className="font-medium">{category.charge}</span>
+                  <span className="font-medium lg:text-[12px] text-[9px]">Charge</span>
+                  <span className="font-medium lg:text-[12px] text-[9px]">{category.charge}</span>
                 </div>
                 <div className="flex justify-between text-sm text-[#0E3B4C] pt-6 pb-8">
-                  <span className="font-medium">Profit</span>
-                  <span className="font-medium text-green-500">{category.profit}</span>
+                  <span className="font-medium lg:text-[12px] text-[9px]">Profit</span>
+                  <span className="font-medium lg:text-[12px] text-[9px] text-green-500">{category.profit}</span>
                 </div>
               </div>
             </div>

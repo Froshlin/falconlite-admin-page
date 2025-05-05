@@ -15,11 +15,11 @@ export const UserSegmentation: React.FC<UserSegmentationProps> = ({ userSegmenta
 
 
   return (
-    <Card className="shadow-none max-w-full w-[338px] h-[458px] flex flex-col justify-between rounded-[29px]">
+    <Card className="shadow-none max-w-full max-[921px]:w-full w-[338px] h-[458px] flex flex-col justify-between rounded-[29px]">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="text-sm font-medium text-gray-600">User Segmentation</CardTitle>
+        <CardTitle className="min-[991px]:text-sm text-[11px] font-medium text-gray-600">User Segmentation</CardTitle>
         <Select defaultValue="gender">
-          <SelectTrigger className="w-[100px] h-8 text-xs">
+          <SelectTrigger className="min-[991px]:w-[100px] w-[85px] h-8 text-[10px]">
             <SelectValue placeholder="Gender" />
           </SelectTrigger>
           <SelectContent>
@@ -27,14 +27,14 @@ export const UserSegmentation: React.FC<UserSegmentationProps> = ({ userSegmenta
           </SelectContent>
         </Select>
       </CardHeader>
-      <CardContent>
+      <CardContent className="flex justify-center items-center">
         <ResponsiveContainer width="100%" height={400}>
           <PieChart>
             <Pie
               data={userSegmentation}
               cx="30%"
               cy="50%"
-              outerRadius={80}
+              outerRadius={100}
               fill="#8884d8"
               dataKey="value"
               labelLine = {false}

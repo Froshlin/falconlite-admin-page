@@ -30,18 +30,18 @@ export default function GeneralPage() {
       </h1>
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between border border-[rgba(135, 140, 141, 0.35)] rounded-lg p-4">
-          <label className="block text-xs text-[#8B9DA4] font-medium">
+          <label className="block sm:text-xs text-[9px] text-[#8B9DA4] font-medium">
             Organisation Name
           </label>
-          <div className="text-[#8B9DA4] text-sm">{organization.name}</div>
+          <div className="text-[#8B9DA4] sm:text-sm text-[10px]">{organization.name}</div>
         </div>
 
         {/* Organization ID */}
         <div className="flex items-center justify-between border border-[rgba(135, 140, 141, 0.35)] rounded-lg p-4">
-          <label className="block text-xs text-[#8B9DA4] font-medium">
+          <label className="block sm:text-xs text-[9px] text-[#8B9DA4] font-medium">
             Organisation ID
           </label>
-          <div className="text-[#8B9DA4] text-sm">{organization.id}</div>
+          <div className="text-[#8B9DA4] sm:text-sm text-[10px]">{organization.id}</div>
         </div>
       </div>
     </div>

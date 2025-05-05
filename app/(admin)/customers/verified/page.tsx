@@ -76,7 +76,7 @@ export default function VerifiedCustomersPage() {
 
   return (
     <div className="pt-10 py-6">
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex justify-between items-center flex-wrap mb-8">
         <div>
           <h1 className="text-2xl font-semibold text-[#0A0E3F]">{filteredCustomers.length} Customers</h1>
           {notification && (
@@ -106,7 +106,7 @@ export default function VerifiedCustomersPage() {
         />
       </div>
 
-      <div className="flex items-center justify-between my-6">
+      <div className="flex items-center justify-between flex-wrap my-6 gap-6">
         <PaginationControls
           currentPage={currentPage}
           totalPages={totalPages}

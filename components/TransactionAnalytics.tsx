@@ -12,7 +12,7 @@ export const TransactionAnalytics: React.FC<TransactionAnalyticsProps> = ({
   const formatCurrency = (value: number) => `$${value.toLocaleString()}`;
 
   return (
-    <Card className="col-span-2 shadow-none max-w-full w-[709px] h-[376px] px-6 rounded-[29px]">
+    <Card className="col-span-2 shadow-none max-w-full max-[1280px]:w-full w-[709px] h-[376px] px-6 rounded-[29px]">
       <CardContent className="bg-[url('/chart-bg.png')] bg-cover bg-center rounded-[29px]">
         <ResponsiveContainer width="100%" height={300}>
           <LineChart data={transactionData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
@@ -23,8 +23,8 @@ export const TransactionAnalytics: React.FC<TransactionAnalyticsProps> = ({
         </ResponsiveContainer>
       </CardContent>
         <CardHeader className="flex flex-row items-center justify-between">
-            <CardTitle className="text-sm font-medium text-[#8B9DA4]">{title}</CardTitle>
-            <span className="text-xs text-gray-400">Updated 50secs ago</span>
+            <CardTitle className="sm:text-sm text-[11px] font-medium text-[#8B9DA4]">{title}</CardTitle>
+            <span className="sm:text-xs text-[9px] text-gray-400">Updated 50secs ago</span>
         </CardHeader>
     </Card>
   );

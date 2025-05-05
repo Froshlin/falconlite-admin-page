@@ -56,7 +56,7 @@ export default function RateConfigurationPage() {
         </h1>
         <span className="text-[16px] text-[#8B9DA4]">Update Rates</span>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-14">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-14">
         {rates.map((rate) => (
           <RateCard key={rate.id} rate={rate} onUpdate={handleUpdate} />
         ))}

@@ -128,7 +128,7 @@ const OverviewPage = () => {
             title="Card Transaction Analytics"
           />
         </div>
-        <div className="flex flex-row xl:flex-col gap-14">
+        <div className="flex flex-row max-[650px]:flex-col max-[768px]:flex-row max-[921px]:flex-col xl:flex-col max-[1280px]:justify-between items-end gap-14">
           <UserSegmentation userSegmentation={userSegmentation} />
           <TopPlatforms topPlatforms={topPlatforms} />
         </div>

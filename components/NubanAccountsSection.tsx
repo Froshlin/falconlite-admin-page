@@ -35,12 +35,12 @@ const NubanAccountsSection = () => {
       <CardContent className="p-6">
         <div className="flex flex-col gap-4">
           <div className='flex justify-between items-center'>
-            <p className="text-[16px] font-medium text-[#8B9DA4]">Nuban Accounts</p>
-            <p className="text-2xl font-semibold text-[#0E3B4C]">{data.accounts}</p>
+            <p className="sm:text-[16px] text-[11px] font-medium text-[#8B9DA4]">Nuban Accounts</p>
+            <p className="sm:text-2xl text-[16px] font-semibold text-[#0E3B4C]">{data.accounts}</p>
           </div>
           <div className='flex justify-between items-center'>
-            <p className="text-[16px] font-medium text-[#8B9DA4]">Available Balance</p>
-            <p className="text-2xl font-semibold text-[#0E3B4C]">{data.balance}</p>
+            <p className="sm:text-[16px] text-[11px] font-medium text-[#8B9DA4]">Available Balance</p>
+            <p className="sm:text-2xl text-[16px] font-semibold text-[#0E3B4C]">{data.balance}</p>
           </div>
         </div>
       </CardContent>

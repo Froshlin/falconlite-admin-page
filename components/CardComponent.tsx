@@ -17,7 +17,7 @@ export const CardComponent: React.FC<CardComponentProps> = ({ stats }) => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+    <div className="grid grid-cols-1 min-[520px]:grid-cols-2 min-[875px]:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-12">
       {/* Stats Cards */}
       {stats.map((stat, index) => (
         <Card key={index} className="max-w-full rounded-4xl h-auto shadow-none">
@@ -36,7 +36,7 @@ export const CardComponent: React.FC<CardComponentProps> = ({ stats }) => {
           </CardHeader>
           <CardContent>
             <div className="flex items-center gap-2">
-              <p className="text-4xl font-semibold text-[#0E3B4C">{stat.value}</p>
+              <p className="md:text-3xl text-2xl font-semibold text-[#0E3B4C">{stat.value}</p>
               <div className="flex items-center gap-1 text-sm">
                 <TrendingUp className='text-[#0FD582]'/>
                 <p className='font-medium text-[11px] text-[#0FD582]'>{stat.change}</p>

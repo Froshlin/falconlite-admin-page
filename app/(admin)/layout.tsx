@@ -89,7 +89,7 @@ export default function DashboardLayout({
               </div>
 
               {/* Content Section */}
-              <div className="w-full md:w-[80%] md:ml-[20%] bg-white pb-3 pt-7 px-4 md:px-14">
+              <div className="w-full md:w-[80%] md:ml-[20%] bg-white pb-3 pt-7 px-4 md:px-10">
                 {children}
               </div>
             </div>

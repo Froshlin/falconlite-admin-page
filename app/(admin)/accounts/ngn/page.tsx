@@ -57,7 +57,7 @@ export default function NGNAccountsPage() {
   return (
     <div className="pt-10">
       {/* Cards */}
-      <div className="grid grid-cols-4 gap-4 mb-8 cursor-pointer">
+      <div className="grid [@media(max-width:390px)]:grid-cols-1 grid-cols-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-8 cursor-pointer">
         {cards.map((card, index) => (
           <AccountCard key={index} card={card}/>
         ))}

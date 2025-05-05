@@ -90,7 +90,7 @@ export default function ProfilePage() {
 
   return (
     <div className="py-8 min-h-screen">
-      <div className="p-6 sm:p-8 flex gap-20">
+      <div className="p-6 sm:p-8 [@media(min-width:860px)]:flex gap-20">
         {/* Display Picture */}
         <div className="flex flex-col items-center mb-8">
           <div className="relative w-32 h-32 rounded-full overflow-hidden">
@@ -137,7 +137,7 @@ export default function ProfilePage() {
                 alt="edit"
                 width={20}
                 height={20}
-                className="absolute right-[calc(4%-24px)] transition ease-in-out duration-300 hover:transform hover:scale-[1.14] cursor-pointer"
+                className="absolute [@media(max-width:768px)]:right-1.5 md:right-[calc(4%-8px)] lg:right-[calc(4%-20px)] transition ease-in-out duration-300 hover:transform hover:scale-[1.14] cursor-pointer"
                 onClick={() => toggleEditMode('name')}
               />
             </div>
@@ -164,7 +164,7 @@ export default function ProfilePage() {
                 alt="edit"
                 width={20}
                 height={20}
-                className="absolute right-[calc(4%-24px)] transition ease-in-out duration-300 hover:transform hover:scale-[1.14] cursor-pointer"
+                className="absolute [@media(max-width:768px)]:right-1.5 md:right-[calc(4%-8px)] lg:right-[calc(4%-20px)] transition ease-in-out duration-300 hover:transform hover:scale-[1.14] cursor-pointer"
                 onClick={() => toggleEditMode('email')}
               />
             </div>
@@ -191,7 +191,7 @@ export default function ProfilePage() {
                 alt="edit"
                 width={20}
                 height={20}
-                className="absolute right-[calc(4%-24px)] transition ease-in-out duration-300 hover:transform hover:scale-[1.14] cursor-pointer"
+                className="absolute [@media(max-width:768px)]:right-1.5 md:right-[calc(4%-8px)] lg:right-[calc(4%-20px)] transition ease-in-out duration-300 hover:transform hover:scale-[1.14] cursor-pointer"
                 onClick={() => toggleEditMode('phoneNumber')}
               />
             </div>
@@ -228,7 +228,7 @@ export default function ProfilePage() {
               />
               <button
                 onClick={() => setIsPasswordModalOpen(true)}
-                className="absolute right-[calc(4%-24px)] bg-[#EEF8FE] py-1 px-3 text-[#36C6F3] text-sm font-semibold transition-colors duration-200 cursor-pointer"
+                className="absolute [@media(max-width:768px)]:right-1.5 md:right-[calc(4%-8px)] lg:right-[calc(4%-20px)] bg-[#EEF8FE] py-1 px-3 text-[#36C6F3] text-sm font-semibold transition-colors duration-200 cursor-pointer"
               >
                 Change
               </button>
@@ -238,7 +238,7 @@ export default function ProfilePage() {
           {/* Save Button */}
           <Button
             onClick={handleSave}
-            className="bg-[#36C6F3] hover:bg-[#2a9cbf] text-white text-[20px] font-medium rounded-[7px] px-6 py-3 mt-6 w-[285px] h-[60px] transition-colors duration-200 cursor-pointer"
+            className="bg-[#36C6F3] hover:bg-[#2a9cbf] text-white text-[20px] font-medium rounded-[7px] px-6 py-3 mt-6 max-w-full w-[285px] h-[60px] transition-colors duration-200 cursor-pointer"
           >
             Save
           </Button>

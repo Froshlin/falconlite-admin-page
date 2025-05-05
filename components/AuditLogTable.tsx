@@ -64,7 +64,14 @@ export const AuditLogTable = ({ auditLogs, currentPage, itemsPerPage, onViewDeta
                   onClick={() => onViewDetails && onViewDetails(log.id)}
                   className="cursor-pointer hover:bg-transparent"
                 >
-                  <Image src={EyeIcon} alt='eye icon' width={24} height={24}/>
+                  <Image
+                    className='w-24'
+                    src={EyeIcon}
+                    style={{height: '100%', maxWidth: '24px'}}
+                    alt='eye icon' 
+                    width={24} 
+                    height={24}
+                  />
                 </Button>
               </TableCell>
             </TableRow>

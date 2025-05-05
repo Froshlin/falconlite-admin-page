@@ -92,7 +92,7 @@ export const CustomerFilterModal = ({
   }, [timeRange]);
 
   return (
-    <div className="flex items-center gap-2 border border-[#8B9DA4] px-4 py-4 rounded-[8px]">
+    <div className="flex items-center gap-2 border border-[#8B9DA4] [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
       {/* Time Range Tabs */}
       <Tabs
         value={selectedTab}
@@ -130,8 +130,9 @@ export const CustomerFilterModal = ({
       {/* Filter Icon to Open Modal */}
       <div>
         <Image
-          className="cursor-pointer"
+          className="cursor-pointer w-[27px]"
           src={Filter}
+          style={{height: '100%', maxWidth: '27px'}}
           alt="filter-icon"
           width={27}
           height={27}

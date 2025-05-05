@@ -83,7 +83,7 @@ export default function CardTransactionsPage() {
 
   return (
     <div className="pt-10 py-6">
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex justify-between items-center flex-wrap mb-8">
         <div>
           <h1 className="text-2xl font-semibold text-[#0A0E3F]">{filteredTransactions.length} Total Transactions</h1>
           {notification && (
@@ -104,7 +104,7 @@ export default function CardTransactionsPage() {
       </div>
 
       {/* Stats Section */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div className="grid [@media(max-width:460px)]:grid-cols-1 grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         {stats.map((stat, index) => (
           <div key={index} className="flex flex-col items-start gap-3 p-4 bg-white border border-[#d7d9db] rounded-[20px]">
             <Image src={stat.image} alt={stat.title} width={40} height={40} />

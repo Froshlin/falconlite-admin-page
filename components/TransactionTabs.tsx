@@ -42,11 +42,18 @@ export function TransactionTabs({ onTimeRangeChange, onFilterChange }: Transacti
   }, [onTimeRangeChange, selectedTab]);
 
   return (
-    <div className="flex items-center gap-2 border border-[#8B9DA4] px-4 py-4 rounded-[8px]">
+    <div className="flex items-center gap-2 border border-[#8B9DA4] [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
       {/* Filter Image and Dropdown */}
       <DropdownMenu>
         <DropdownMenuTrigger>
-          <Image className='cursor-pointer' src={Filter} alt='filter-icon' width={27} height={27} />
+          <Image 
+            className='cursor-pointer w-[27px]' 
+            src={Filter} 
+            style={{height: '100%', maxWidth: '27px'}} 
+            alt='filter-icon' 
+            width={27} 
+            height={27} 
+          />
         </DropdownMenuTrigger>
         <DropdownMenuContent>
           <DropdownMenuItem onClick={() => handleFilterChange('all')}>

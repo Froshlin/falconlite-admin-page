@@ -18,7 +18,7 @@ export const TopPlatforms: React.FC<TopPlatformsProps> = ({ topPlatforms }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Card className="shadow-none max-w-full h-[295px] rounded-[29px] bg-[var(--card)]">
+    <Card className="shadow-none max-w-full max-[921px]:w-full max-[1280px]:w-[338px] h-[295px] rounded-[29px] bg-[var(--card)]">
       <CardHeader className="flex flex-row items-center justify-between">
         <CardTitle className="text-sm font-medium text-[var(--muted-foreground)]">
           Top Platforms

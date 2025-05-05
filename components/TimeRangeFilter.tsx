@@ -122,31 +122,31 @@ export const TimeRangeFilter = ({
   }, [statusFilter]);
 
   return (
-    <div className="flex items-center gap-2 border border-[#8B9DA4] px-4 py-4 rounded-[8px]">
+    <div className="flex items-center gap-2 border border-[#8B9DA4] [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
       {/* Time Range Tabs */}
       <Tabs value={selectedTab} onValueChange={handleTabChange} className="w-auto">
         <TabsList className="flex w-auto bg-transparent p-0">
           <TabsTrigger
             value="yesterday"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 [@media(max-width:478px)]:text-[9px] text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
           >
             Yesterday
           </TabsTrigger>
           <TabsTrigger
             value="today"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 [@media(max-width:478px)]:text-[10px] text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
           >
             Today
           </TabsTrigger>
           <TabsTrigger
             value="this-week"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 [@media(max-width:478px)]:text-[10px] text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
           >
             This Week
           </TabsTrigger>
           <TabsTrigger
             value="this-month"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 [@media(max-width:478px)]:text-[10px] text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
           >
             This Month
           </TabsTrigger>
@@ -156,8 +156,9 @@ export const TimeRangeFilter = ({
       {/* Filter Icon to Open Modal */}
       <div>
         <Image
-          className='cursor-pointer'
+          className='cursor-pointer w-[27px]'
           src={Filter}
+          style={{height: '100%', maxWidth: '27px'}}
           alt='filter-icon'
           width={27}
           height={27}
