@@ -17,7 +17,7 @@ export function ColumnsDropdown({
   return (
     <div>
       <DropdownMenu>
-        <DropdownMenuTrigger className="flex items-center gap-1 border border-gray-300 rounded px-3 py-2 text-sm cursor-pointer">
+        <DropdownMenuTrigger className="flex items-center gap-1 border border-input rounded px-3 py-2 text-sm cursor-pointer">
           <span>{itemsPerPage} columns</span>
           <ChevronDown size={16} />
         </DropdownMenuTrigger>

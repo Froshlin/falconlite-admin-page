@@ -17,7 +17,7 @@ export const UserSegmentation: React.FC<UserSegmentationProps> = ({ userSegmenta
   return (
     <Card className="shadow-none max-w-full max-[921px]:w-full w-[338px] h-[458px] flex flex-col justify-between rounded-[29px]">
       <CardHeader className="flex flex-row items-center justify-between">
-        <CardTitle className="min-[991px]:text-sm text-[11px] font-medium text-gray-600">User Segmentation</CardTitle>
+        <CardTitle className="min-[991px]:text-sm text-[11px] font-medium text-muted-foreground">User Segmentation</CardTitle>
         <Select defaultValue="gender">
           <SelectTrigger className="min-[991px]:w-[100px] w-[85px] h-8 text-[10px]">
             <SelectValue placeholder="Gender" />
@@ -68,7 +68,7 @@ export const UserSegmentation: React.FC<UserSegmentationProps> = ({ userSegmenta
               verticalAlign="top"
               iconType="circle"
               formatter={(value) => (
-                <span className="text-sm text-gray-600 ">{value}</span>
+                <span className="text-sm text-muted-foreground ">{value}</span>
               )}
             />
           </PieChart>

@@ -85,9 +85,9 @@ export default function AddMemberPage() {
     <div className="pt-10 py-6">
       <div className="flex justify-between items-center flex-wrap gap-4 mb-8">
         <div>
-          <h1 className="text-2xl font-semibold text-[#0A0E3F]">{filteredCustomers.length} Customers</h1>
+          <h1 className="text-2xl font-semibold text-foreground">{filteredCustomers.length} Customers</h1>
           {notification && (
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               {notification.message}.
             </p>
           )}
@@ -105,7 +105,7 @@ export default function AddMemberPage() {
         placeholder="Search Customer"
       />
 
-      <div className="border border-[#d7d9db] rounded-[7px] mt-8">
+      <div className="border border-border rounded-[7px] mt-8 overflow-x-auto">
         <AddMemberTable
           customers={filteredCustomers}
           currentPage={currentPage}

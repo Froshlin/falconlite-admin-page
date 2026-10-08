@@ -44,7 +44,7 @@ export const AddMemberTable = ({ customers, currentPage, itemsPerPage, onAddMemb
       case 'F':
         return 'bg-[#F79E1B] font-semibold text-[12px] text-white w-[31px] h-[31px] flex items-center justify-center rounded-full';
       default:
-        return 'bg-gray-300 font-semibold text-[12px] text-white w-[31px] h-[31px] flex items-center justify-center rounded-full';
+        return 'bg-muted font-semibold text-[12px] text-white w-[31px] h-[31px] flex items-center justify-center rounded-full';
     }
   };
 
@@ -104,10 +104,10 @@ export const AddMemberTable = ({ customers, currentPage, itemsPerPage, onAddMemb
             </TableRow>
           ) : (
             paginatedCustomers.map((customer, index) => (
-              <TableRow key={customer.id} className={index % 2 === 0 ? 'bg-[#F8FCFF] border-b-0' : 'bg-[#FFFFFF] border-b-0'}>
+              <TableRow key={customer.id} className={index % 2 === 0 ? 'bg-muted/30 border-b-0' : 'bg-card border-b-0'}>
                 <TableCell className="py-5 flex items-center gap-2">
-                  <div className='w-[31px] h-[31px] bg-gray-200 rounded-full flex items-center justify-center'>
-                    <span className="text-[12px] font-semibold text-gray-600">
+                  <div className='w-[31px] h-[31px] bg-muted rounded-full flex items-center justify-center'>
+                    <span className="text-[12px] font-semibold text-muted-foreground">
                       {customer.customerName.split(' ').map(name => name[0]).join('').slice(0, 2).toUpperCase()}
                     </span>
                   </div>
@@ -122,9 +122,9 @@ export const AddMemberTable = ({ customers, currentPage, itemsPerPage, onAddMemb
                 <TableCell className="py-5">{customer.date}</TableCell>
                 <TableCell className="py-5 flex items-center gap-2">
                   <span>{customer.phoneNo}</span>
-                  <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
+                  <div className="flex items-center justify-center w-6 h-6 bg-primary/10 rounded-full">
                     {copiedId === customer.id ? (
-                      <CheckCircle className="text-[#36C6F3]" size={16} />
+                      <CheckCircle className="text-primary" size={16} />
                     ) : (
                       <Image
                         src={clipboard}
@@ -145,7 +145,7 @@ export const AddMemberTable = ({ customers, currentPage, itemsPerPage, onAddMemb
                 </TableCell>
                 <TableCell className="text-right">
                   <Button
-                    className="bg-[#36C6F3] hover:bg-[#2a9cbf] text-white text-sm px-4 py-1 rounded-[5px] flex items-center gap-1"
+                    className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm px-4 py-1 rounded-[5px] flex items-center gap-1"
                     onClick={() => handleAddClick(customer.id)}
                   >
                     Add
@@ -160,14 +160,14 @@ export const AddMemberTable = ({ customers, currentPage, itemsPerPage, onAddMemb
 
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-[rgba(139,143,144,0.3)] w-[80%] left-[20%] top-[14.5%] backdrop-blur-[2px] z-2100">
-          <div className="bg-white rounded-lg p-6 w-[604px] h-[228px] relative">
-            <h2 className="text-[13px] font-medium text-[#0E3B4C] mb-5">Select Role</h2>
+          <div className="bg-card rounded-lg p-6 w-[90vw] max-w-[604px] h-auto relative">
+            <h2 className="text-[13px] font-medium text-card-foreground mb-5">Select Role</h2>
             <Select
               value={selectedRole || ''}
               onValueChange={(value) => setSelectedRole(value as Role)}
               defaultValue=""
             >
-              <SelectTrigger className="w-full border-gray-300 mb-[55px] h-[85px]">
+              <SelectTrigger className="w-full border-input mb-[55px] h-[85px]">
                 <SelectValue placeholder="Role" />
               </SelectTrigger>
               <SelectContent className='z-2111'>
@@ -178,7 +178,7 @@ export const AddMemberTable = ({ customers, currentPage, itemsPerPage, onAddMemb
             </Select>
             <div className="flex justify-between">
               <Button
-                className="bg-[#36C6F3] hover:bg-[#2a9cbf] text-white px-4 py-2 rounded-[5px]"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground px-4 py-2 rounded-[5px]"
                 onClick={handleAddMember}
                 disabled={!selectedRole}
               >
@@ -186,7 +186,7 @@ export const AddMemberTable = ({ customers, currentPage, itemsPerPage, onAddMemb
               </Button>
               <Button
                 variant="ghost"
-                className="text-[#0E3B4C] flex items-center gap-1"
+                className="text-card-foreground flex items-center gap-1"
                 onClick={handleCloseModal}
               >
                 Close <X size={16} />

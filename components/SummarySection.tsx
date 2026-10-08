@@ -31,32 +31,32 @@ const SummarySection = () => {
   }
 
   return (
-    <Card className="mb-4 border border-gray-[#8B9DA4] gap-0 py-0 shadow-none rounded-[29px]">
+    <Card className="mb-4 border border-border gap-0 py-0 shadow-none rounded-[29px]">
       <CardHeader className="px-0 gap-0">
-        <CardTitle className="text-xl py-6 px-6 border-b border-gray-[#8B9DA4]">Summary</CardTitle>
+        <CardTitle className="text-xl py-6 px-6 border-b border-border">Summary</CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           {/* Transaction Limit Section */}
-          <div className="pb-14 pt-4 pr-4 border-r border-gray-[#8B9DA4]">
-            <p className="py-2 text-sm text-[#8B9DA4]">Transaction Limit</p>
-            <p className="py-4 text-2xl font-bold text-[#0E3B4C]">{data.transactionLimit}</p>
+          <div className="pb-14 pt-4 pr-4 sm:border-r border-border">
+            <p className="py-2 text-sm text-muted-foreground">Transaction Limit</p>
+            <p className="py-4 text-2xl font-bold text-foreground">{data.transactionLimit}</p>
           </div>
-          
+
           {/* Amount Section */}
-          <div className="pb-14 pt-6 px-4 border-r border-gray-[#8B9DA4]">
-            <p className="py-2 text-sm text-[#8B9DA4]">Amount</p>
-            <p className="py-4 text-2xl font-bold text-[#0E3B4C]">{data.amount.value}</p>
-            <p className="text-xs text-[#8B9DA4]">{data.amount.formatted}</p>
-            <p className="text-xs text-[#8B9DA4]">{data.amount.description}</p>
+          <div className="pb-14 pt-6 px-4 sm:border-r border-border">
+            <p className="py-2 text-sm text-muted-foreground">Amount</p>
+            <p className="py-4 text-2xl font-bold text-foreground">{data.amount.value}</p>
+            <p className="text-xs text-muted-foreground">{data.amount.formatted}</p>
+            <p className="text-xs text-muted-foreground">{data.amount.description}</p>
           </div>
-          
+
           {/* Profit Section */}
           <div className="pb-14 pt-6 pl-4">
-            <p className="py-2 text-sm text-[#8B9DA4]">Profit</p>
-            <p className="py-4 text-2xl font-bold text-[#0E3B4C]">{data.profit.value}</p>
-            <p className="text-xs text-[#8B9DA4]">{data.profit.formatted}</p>
-            <p className="text-xs text-[#8B9DA4]">{data.profit.description}</p>
+            <p className="py-2 text-sm text-muted-foreground">Profit</p>
+            <p className="py-4 text-2xl font-bold text-foreground">{data.profit.value}</p>
+            <p className="text-xs text-muted-foreground">{data.profit.formatted}</p>
+            <p className="text-xs text-muted-foreground">{data.profit.description}</p>
           </div>
         </div>
         {/* Note: Amount and Profit are identical (₦281,651K). Investigate if this is intentional or a data issue. */}

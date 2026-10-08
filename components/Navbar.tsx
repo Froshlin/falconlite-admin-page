@@ -78,7 +78,7 @@ const Navbar = () => {
         {isSingleCardTransactions && (
           <button
             onClick={() => router.back()}
-            className="text-[#6B7280] flex items-center gap-1 mr-2"
+            className="text-muted-foreground flex items-center gap-1 mr-2"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -96,22 +96,22 @@ const Navbar = () => {
             </svg>
           </button>
         )}
-        <div className='font-semibold text-[#A0B6C0] md:block hidden'>{displayTitle}</div>
+        <div className='font-semibold text-muted-foreground md:block hidden'>{displayTitle}</div>
       </div>
       {/* Admin Profile */}
       <div className='flex items-center gap-3.5'>
         {loading ? (
-          <div className="flex items-center gap-3 border-[1px] border-[#D9D9D9] px-4 py-2 rounded-[6px]">
-            <div className="w-[30px] h-[30px] bg-gray-200 rounded-full animate-pulse"></div>
-            <div className="w-24 h-4 bg-gray-200 rounded animate-pulse"></div>
+          <div className="flex items-center gap-3 border-[1px] border-border px-4 py-2 rounded-[6px]">
+            <div className="w-[30px] h-[30px] bg-muted rounded-full animate-pulse"></div>
+            <div className="w-24 h-4 bg-muted rounded animate-pulse"></div>
           </div>
         ) : error || !user ? (
-          <div className="flex items-center gap-3 border-[1px] border-[#D9D9D9] px-4 py-2 rounded-[6px]">
-            <div className="w-[30px] h-[30px] bg-gray-200 rounded-full"></div>
-            <h3 className="font-medium text-[16px] text-[#8B9DA4]">Error</h3>
+          <div className="flex items-center gap-3 border-[1px] border-border px-4 py-2 rounded-[6px]">
+            <div className="w-[30px] h-[30px] bg-muted rounded-full"></div>
+            <h3 className="font-medium text-[16px] text-muted-foreground">Error</h3>
           </div>
         ) : (
-          <div className='flex items-center gap-3 border-[1px] border-[#D9D9D9] px-4 py-2 rounded-[6px]'>
+          <div className='flex items-center gap-3 border-[1px] border-border px-4 py-2 rounded-[6px]'>
             <Image
               src={user.image || '/default-profile.png'}
               alt='profile picture'
@@ -119,7 +119,7 @@ const Navbar = () => {
               height={30}
               className='cursor-pointer rounded-full'
             />
-            <h3 className='font-medium text-[16px] text-[#8B9DA4]'>{user.name}</h3>
+            <h3 className='font-medium text-[16px] text-muted-foreground'>{user.name}</h3>
           </div>
         )}
         <DropdownMenu>

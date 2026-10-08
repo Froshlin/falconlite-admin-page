@@ -85,9 +85,9 @@ export default function CardTransactionsPage() {
     <div className="pt-10 py-6">
       <div className="flex justify-between items-center flex-wrap mb-8">
         <div>
-          <h1 className="text-2xl font-semibold text-[#0A0E3F]">{filteredTransactions.length} Total Transactions</h1>
+          <h1 className="text-2xl font-semibold text-foreground">{filteredTransactions.length} Total Transactions</h1>
           {notification && (
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               {notification.message}
             </p>
           )}
@@ -106,11 +106,11 @@ export default function CardTransactionsPage() {
       {/* Stats Section */}
       <div className="grid [@media(max-width:460px)]:grid-cols-1 grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
         {stats.map((stat, index) => (
-          <div key={index} className="flex flex-col items-start gap-3 p-4 bg-white border border-[#d7d9db] rounded-[20px]">
+          <div key={index} className="flex flex-col items-start gap-3 p-4 bg-card border border-border rounded-[20px]">
             <Image src={stat.image} alt={stat.title} width={40} height={40} />
             <div>
-              <p className="text-sm text-gray-500 py-0.5">{stat.title}</p>
-              <h2 className="text-[28px] font-semibold text-[#0A0E3F] py-2">{stat.value}</h2>
+              <p className="text-sm text-muted-foreground py-0.5">{stat.title}</p>
+              <h2 className="text-[28px] font-semibold text-foreground py-2">{stat.value}</h2>
             </div>
           </div>
         ))}
@@ -122,7 +122,7 @@ export default function CardTransactionsPage() {
         placeholder="Search transactions"
       />
 
-      <div className="border border-[#d7d9db] rounded-[7px] mt-8">
+      <div className="border border-border rounded-[7px] mt-8 overflow-x-auto">
         <CardTransactionTable
           transactions={filteredTransactions}
           currentPage={currentPage}
@@ -130,7 +130,7 @@ export default function CardTransactionsPage() {
         />
       </div>
 
-      <div className="flex items-center justify-between my-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 my-6">
         <PaginationControls
           currentPage={currentPage}
           totalPages={totalPages}

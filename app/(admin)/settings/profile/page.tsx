@@ -108,7 +108,7 @@ export default function ProfilePage() {
               className="hidden"
               onChange={handleImageChange}
             />
-            <span className="inline-block bg-[#36C6F3] hover:bg-[#2a9cbf] text-white text-sm text-center font-medium rounded-[4px] w-[208px] h-[46px] px-4 py-[14.2px] cursor-pointer transition-colors duration-200">
+            <span className="inline-block bg-primary hover:bg-primary/90 text-primary-foreground text-sm text-center font-medium rounded-[4px] w-full max-w-[208px] h-[46px] px-4 py-[14.2px] cursor-pointer transition-colors duration-200">
               Change Picture
             </span>
           </label>
@@ -118,7 +118,7 @@ export default function ProfilePage() {
         <div className="flex flex-col gap-6 w-full">
           {/* Name */}
           <div>
-            <label className="block text-sm text-[#0E3B4C] mb-1 font-medium">Name</label>
+            <label className="block text-sm text-foreground mb-1 font-medium">Name</label>
             <div className="relative flex items-center">
               <input
                 type="text"
@@ -126,10 +126,10 @@ export default function ProfilePage() {
                 value={profile.name}
                 onChange={handleInputChange}
                 readOnly={!editMode.name}
-                className={`w-full p-3 border border-gray-300 rounded-[5px] text-[#0E3B4C] text-sm transition-all duration-200 ${
+                className={`w-full p-3 border border-input rounded-[5px] text-foreground text-sm transition-all duration-200 ${
                   editMode.name
-                    ? 'focus:outline-none focus:ring-2 focus:ring-[#36C6F3]'
-                    : 'bg-gray-100 cursor-not-allowed'
+                    ? 'focus:outline-none focus:ring-2 focus:ring-primary'
+                    : 'bg-muted cursor-not-allowed'
                 }`}
               />
               <Image
@@ -145,7 +145,7 @@ export default function ProfilePage() {
 
           {/* Email */}
           <div>
-            <label className="block text-sm text-[#0E3B4C] mb-1 font-medium">Email</label>
+            <label className="block text-sm text-foreground mb-1 font-medium">Email</label>
             <div className="relative flex items-center">
               <input
                 type="email"
@@ -153,10 +153,10 @@ export default function ProfilePage() {
                 value={profile.email}
                 onChange={handleInputChange}
                 readOnly={!editMode.email}
-                className={`w-full p-3 border border-gray-300 rounded-[5px] text-[#0E3B4C] text-sm transition-all duration-200 ${
+                className={`w-full p-3 border border-input rounded-[5px] text-foreground text-sm transition-all duration-200 ${
                   editMode.email
-                    ? 'focus:outline-none focus:ring-2 focus:ring-[#36C6F3]'
-                    : 'bg-gray-100 cursor-not-allowed'
+                    ? 'focus:outline-none focus:ring-2 focus:ring-primary'
+                    : 'bg-muted cursor-not-allowed'
                 }`}
               />
               <Image
@@ -172,7 +172,7 @@ export default function ProfilePage() {
 
           {/* Phone Number */}
           <div>
-            <label className="block text-sm text-[#0E3B4C] mb-1 font-medium">Phone Number</label>
+            <label className="block text-sm text-foreground mb-1 font-medium">Phone Number</label>
             <div className="relative flex items-center">
               <input
                 type="tel"
@@ -180,10 +180,10 @@ export default function ProfilePage() {
                 value={profile.phoneNumber}
                 onChange={handleInputChange}
                 readOnly={!editMode.phoneNumber}
-                className={`w-full p-3 border border-gray-300 rounded-[5px] text-[#0E3B4C] text-sm transition-all duration-200 ${
+                className={`w-full p-3 border border-input rounded-[5px] text-foreground text-sm transition-all duration-200 ${
                   editMode.phoneNumber
-                    ? 'focus:outline-none focus:ring-2 focus:ring-[#36C6F3]'
-                    : 'bg-gray-100 cursor-not-allowed'
+                    ? 'focus:outline-none focus:ring-2 focus:ring-primary'
+                    : 'bg-muted cursor-not-allowed'
                 }`}
               />
               <Image
@@ -199,14 +199,14 @@ export default function ProfilePage() {
 
           {/* Roles */}
           <div className="my-6">
-            <label className="block text-sm text-[#0E3B4C] mb-1 font-medium">Role</label>
-            <div className="flex gap-3">
+            <label className="block text-sm text-foreground mb-1 font-medium">Role</label>
+            <div className="flex gap-3 flex-wrap">
               {profile.roles.map((role) => (
                 <span
                   key={role}
                   className={
                     role === 'Owner'
-                      ? 'bg-[#36C6F3] text-white text-[13px] font-semibold px-[15px] w-[89px] h-[34px] rounded-[19px] flex items-center justify-center'
+                      ? 'bg-primary text-primary-foreground text-[13px] font-semibold px-[15px] w-[89px] h-[34px] rounded-[19px] flex items-center justify-center'
                       : 'bg-[#0FD582] text-white text-[13px] font-semibold px-[15px] w-[89px] h-[34px] rounded-[19px] flex items-center justify-center'
                   }
                 >
@@ -218,17 +218,17 @@ export default function ProfilePage() {
 
           {/* Password */}
           <div>
-            <label className="block text-sm text-[#0E3B4C] mb-1 font-medium">Password</label>
+            <label className="block text-sm text-foreground mb-1 font-medium">Password</label>
             <div className="relative flex items-center gap-2">
               <input
                 type="password"
                 value="************"
                 readOnly
-                className="w-full p-3 border border-gray-300 rounded-[5px] focus:outline-none text-[#0E3B4C] text-sm"
+                className="w-full p-3 border border-input rounded-[5px] focus:outline-none text-foreground text-sm"
               />
               <button
                 onClick={() => setIsPasswordModalOpen(true)}
-                className="absolute [@media(max-width:768px)]:right-1.5 md:right-[calc(4%-8px)] lg:right-[calc(4%-20px)] bg-[#EEF8FE] py-1 px-3 text-[#36C6F3] text-sm font-semibold transition-colors duration-200 cursor-pointer"
+                className="absolute [@media(max-width:768px)]:right-1.5 md:right-[calc(4%-8px)] lg:right-[calc(4%-20px)] bg-primary/10 py-1 px-3 text-primary text-sm font-semibold transition-colors duration-200 cursor-pointer"
               >
                 Change
               </button>
@@ -238,7 +238,7 @@ export default function ProfilePage() {
           {/* Save Button */}
           <Button
             onClick={handleSave}
-            className="bg-[#36C6F3] hover:bg-[#2a9cbf] text-white text-[20px] font-medium rounded-[7px] px-6 py-3 mt-6 max-w-full w-[285px] h-[60px] transition-colors duration-200 cursor-pointer"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground text-[20px] font-medium rounded-[7px] px-6 py-3 mt-6 max-w-full w-[285px] h-[60px] transition-colors duration-200 cursor-pointer"
           >
             Save
           </Button>

@@ -8,8 +8,8 @@ import { SearchBarProps } from '@/types/types';
 // eslint-disable-next-line quotes
 export function SearchBar({ value, onChange, placeholder = "Search" }: SearchBarProps) {
   return (
-    <div className="relative mb-4 border border-gray-400 rounded-[3px] w-full h-[50px]">
-      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+    <div className="relative mb-4 border border-input rounded-[3px] w-full h-[50px]">
+      <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground" size={20} />
       <Input
         placeholder={placeholder}
         value={value}

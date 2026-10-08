@@ -25,23 +25,23 @@ export default function GeneralPage() {
 
   return (
     <div className="py-8 mt-8 min-h-screen">
-      <h1 className="text-2xl font-semibold text-[#0E3B4C] mb-20">
+      <h1 className="text-2xl font-semibold text-foreground mb-20">
         General
       </h1>
       <div className="flex flex-col gap-4">
-        <div className="flex items-center justify-between border border-[rgba(135, 140, 141, 0.35)] rounded-lg p-4">
-          <label className="block sm:text-xs text-[9px] text-[#8B9DA4] font-medium">
+        <div className="flex items-center justify-between flex-wrap gap-2 border border-border rounded-lg p-4">
+          <label className="block sm:text-xs text-[9px] text-muted-foreground font-medium">
             Organisation Name
           </label>
-          <div className="text-[#8B9DA4] sm:text-sm text-[10px]">{organization.name}</div>
+          <div className="text-muted-foreground sm:text-sm text-[10px]">{organization.name}</div>
         </div>
 
         {/* Organization ID */}
-        <div className="flex items-center justify-between border border-[rgba(135, 140, 141, 0.35)] rounded-lg p-4">
-          <label className="block sm:text-xs text-[9px] text-[#8B9DA4] font-medium">
+        <div className="flex items-center justify-between flex-wrap gap-2 border border-border rounded-lg p-4">
+          <label className="block sm:text-xs text-[9px] text-muted-foreground font-medium">
             Organisation ID
           </label>
-          <div className="text-[#8B9DA4] sm:text-sm text-[10px]">{organization.id}</div>
+          <div className="text-muted-foreground sm:text-sm text-[10px]">{organization.id}</div>
         </div>
       </div>
     </div>

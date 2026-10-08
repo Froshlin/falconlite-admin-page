@@ -93,23 +93,23 @@ const OverviewPage = () => {
   };
 
   if (isLoading) {
-    return <div className="text-center py-10">Loading...</div>;
+    return <div className="text-center py-10 text-foreground">Loading...</div>;
   }
 
   if (error) {
-    return <div className="text-center py-10 text-red-500">Error: {error}</div>;
+    return <div className="text-center py-10 text-destructive">Error: {error}</div>;
   }
 
   return (
     <div className="pt-10">
       <div className="flex flex-col lg:flex-row lg:gap-0 gap-6 lg:items-center justify-between">
         <div className="flex flex-col gap-3">
-          <h1 className="font-semibold text-2xl text-[#0E3B4C]">
+          <h1 className="font-semibold text-2xl text-foreground">
             {getGreeting()}, {userInfo.name}!
           </h1>
           <div className="flex items-center gap-1">
-            <div className="bg-[#0E3B4C] w-4 h-4 rounded-full"></div>
-            <p className="text-sm text-[#8B9DA4]">{notification.message}</p>
+            <div className="bg-foreground w-4 h-4 rounded-full"></div>
+            <p className="text-sm text-muted-foreground">{notification.message}</p>
           </div>
         </div>
         <OverviewTabs onTimeRangeChange={handleTimeRangeChange} />

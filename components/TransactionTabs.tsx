@@ -42,7 +42,7 @@ export function TransactionTabs({ onTimeRangeChange, onFilterChange }: Transacti
   }, [onTimeRangeChange, selectedTab]);
 
   return (
-    <div className="flex items-center gap-2 border border-[#8B9DA4] min-[480px]:w-fit [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
+    <div className="flex items-center gap-2 flex-wrap border border-border min-[480px]:w-fit [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
       {/* Filter Image and Dropdown */}
       <DropdownMenu>
         <DropdownMenuTrigger>
@@ -75,25 +75,25 @@ export function TransactionTabs({ onTimeRangeChange, onFilterChange }: Transacti
         <TabsList className="flex w-auto bg-transparent p-0">
           <TabsTrigger
             value="yesterday"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             Yesterday
           </TabsTrigger>
           <TabsTrigger
             value="today"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             Today
           </TabsTrigger>
           <TabsTrigger
             value="this-week"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             This Week
           </TabsTrigger>
           <TabsTrigger
             value="this-month"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             This Month
           </TabsTrigger>

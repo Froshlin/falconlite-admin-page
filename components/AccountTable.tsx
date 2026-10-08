@@ -47,7 +47,7 @@ export function AccountTable({ accounts, currentPage, itemsPerPage }: AccountTab
       </TableHeader>
       <TableBody>
         {paginatedAccounts.map((account, index) => (
-          <TableRow key={account.id} className={index % 2 === 0 ? 'bg-[#F8FCFF] border-b-0' : 'bg-[#FFFFFF] border-b-0'}>
+          <TableRow key={account.id} className={index % 2 === 0 ? 'bg-muted/30 border-b-0' : 'bg-card border-b-0'}>
             <TableCell className="py-5">
               <input type="checkbox" className="mr-2 w-5 h-5 rounded-[10px]" />
             </TableCell>
@@ -55,9 +55,9 @@ export function AccountTable({ accounts, currentPage, itemsPerPage }: AccountTab
             <TableCell>{account.accountName}</TableCell>
             <TableCell className="flex items-center gap-2 translate-y-3">
               <span>{account.accountNumber}</span>
-              <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
+              <div className="flex items-center justify-center w-6 h-6 bg-primary/10 rounded-full">
                 {copiedId === account.id ? (
-                  <CheckCircle className="text-[#36C6F3]" size={16} />
+                  <CheckCircle className="text-primary" size={16} />
                 ) : (
                   <Image
                     className="cursor-pointer"

@@ -62,15 +62,15 @@ export const CardTransactionTable = ({ transactions, currentPage, itemsPerPage }
           </TableRow>
         ) : (
           paginatedTransactions.map((transaction, index) => (
-            <TableRow key={transaction.id} className={index % 2 === 0 ? 'bg-[#F8FCFF] border-b-0' : 'bg-[#FFFFFF] border-b-0'}>
+            <TableRow key={transaction.id} className={index % 2 === 0 ? 'bg-muted/30 border-b-0' : 'bg-card border-b-0'}>
               <TableCell className="py-5">{transaction.cardId}</TableCell>
               <TableCell className="py-5">{transaction.merchantId}</TableCell>
               <TableCell className="py-5">{transaction.merchantName}</TableCell>
               <TableCell className="flex items-center gap-2 py-5">
                 <span>{transaction.maskedPan}</span>
-                <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
+                <div className="flex items-center justify-center w-6 h-6 bg-primary/10 rounded-full">
                   {copiedId === transaction.id ? (
-                    <CheckCircle className="text-[#36C6F3]" size={16} />
+                    <CheckCircle className="text-primary" size={16} />
                   ) : (
                     <Image
                       className="cursor-pointer"

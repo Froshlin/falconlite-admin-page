@@ -51,10 +51,10 @@ export default function RateConfigurationPage() {
   return (
     <div className="py-6">
       <div className="mb-12">
-        <h1 className="text-2xl font-semibold text-[#0E3B4C] mt-6">
+        <h1 className="text-2xl font-semibold text-foreground mt-6">
           Rate Configuration
         </h1>
-        <span className="text-[16px] text-[#8B9DA4]">Update Rates</span>
+        <span className="text-[16px] text-muted-foreground">Update Rates</span>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-14">
         {rates.map((rate) => (

@@ -25,7 +25,7 @@ export const TopPlatforms: React.FC<TopPlatformsProps> = ({ topPlatforms }) => {
         </CardTitle>
         <Popover open={isOpen} onOpenChange={setIsOpen}>
           <PopoverTrigger asChild>
-            <div className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] cursor-pointer hover:text-[var(--foreground)] bg-gray-100 py-1 px-2 rounded-md">
+            <div className="flex items-center gap-1 text-xs text-[var(--muted-foreground)] cursor-pointer hover:text-[var(--foreground)] bg-muted py-1 px-2 rounded-md">
               <CalendarIcon className="w-4 h-4" />
               <span>{date ? format(date, 'MMMM') : 'This Month'}</span>
               <ChevronDown className={`w-4 h-4 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
@@ -79,7 +79,7 @@ export const TopPlatforms: React.FC<TopPlatformsProps> = ({ topPlatforms }) => {
                   )}
                   
                 </div>
-              <div className=' bg-[#FBFBFB] rounded-[6px] py-2 px-2 flex items-center justify-between w-full z-10' style={{
+              <div className=' bg-muted rounded-[6px] py-2 px-2 flex items-center justify-between w-full z-10' style={{
                 backgroundImage: 'url(\'/line-background.png\')',
                 backgroundRepeat: 'no-repeat',
                 backgroundPosition: 'center',

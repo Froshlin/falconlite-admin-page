@@ -78,7 +78,7 @@ export const VerifiedCustomerTable = ({ customers, currentPage, itemsPerPage }: 
           </TableRow>
         ) : (
           paginatedCustomers.map((customer, index) => (
-            <TableRow key={customer.id} className={index % 2 === 0 ? 'bg-[#F8FCFF] border-b-0' : 'bg-[#FFFFFF] border-b-0'}>
+            <TableRow key={customer.id} className={index % 2 === 0 ? 'bg-muted/40 border-b-0' : 'bg-card border-b-0'}>
               <TableCell className="py-5 flex items-center gap-2">
                 <input type="checkbox" className="mr-2" />
                 <div className='flex items-center gap-2'>
@@ -102,9 +102,9 @@ export const VerifiedCustomerTable = ({ customers, currentPage, itemsPerPage }: 
               <TableCell className="py-5">{customer.date || 'N/A'}</TableCell>
               <TableCell className="py-5 flex items-center gap-2">
                 <span>{customer.phoneNo}</span>
-                <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
+                <div className="flex items-center justify-center w-6 h-6 bg-muted rounded-full">
                     {copiedId === customer.id ? (
-                        <CheckCircle className="text-[#36C6F3]" size={16} />
+                        <CheckCircle className="text-primary" size={16} />
                     ) : (
                         <Image
                         className="cursor-pointer"

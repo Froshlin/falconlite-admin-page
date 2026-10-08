@@ -52,12 +52,12 @@ export function TransactionTable({ transactions, currentPage, itemsPerPage }: Tr
       </TableHeader>
       <TableBody>
         {paginatedTransactions.map((transaction, index) => (
-          <TableRow key={transaction.id} className={index % 2 === 0 ? 'bg-[#F8FCFF] border-b-0' : 'bg-[#FFFFFF] border-b-0'}>
+          <TableRow key={transaction.id} className={index % 2 === 0 ? 'bg-muted/40 border-b-0' : 'bg-card border-b-0'}>
             <TableCell className="flex items-center gap-2 py-5">
               <Image src={transaction.image} alt="transaction-icon" width={32} height={32} className="rounded-full" />
               <div className="flex flex-col">
                 <span>{transaction.transaction}</span>
-                <span className="text-sm text-gray-500">{transaction.type}</span>
+                <span className="text-sm text-muted-foreground">{transaction.type}</span>
               </div>
             </TableCell>
             <TableCell>{transaction.amount}</TableCell>

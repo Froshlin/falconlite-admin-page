@@ -40,41 +40,41 @@ export const RateUpdateModal = ({ isOpen, onClose, rate, onSave }: RateUpdateMod
         <div className="flex flex-col gap-4">
             {/* Current Rate */}
             <div>
-            <label className="text-[13px] text-[#0E3B4C] mb-1 font-medium">MIDEN Current Rate</label>
+            <label className="text-[13px] text-foreground mb-1 font-medium">MIDEN Current Rate</label>
             <input
                 type="text"
                 value={currentRate.toFixed(2)}
                 readOnly
-                className="w-full p-2 border border-gray-300 rounded-[5px] focus:outline-none text-[#0E3B4C] text-sm"
+                className="w-full p-2 border border-input rounded-[5px] focus:outline-none text-foreground text-sm bg-card"
             />
             </div>
 
             {/* Added Rate */}
             <div>
-            <label className="block text-sm text-[#0E3B4C] mb-1 font-medium">Added Rate</label>
+            <label className="block text-sm text-foreground mb-1 font-medium">Added Rate</label>
             <input
                 type="number"
                 value={addedRate}
                 onChange={handleAddedRateChange}
-                className="w-full p-2 border border-gray-300 rounded-[5px] focus:outline-none text-[#0E3B4C] text-sm"
+                className="w-full p-2 border border-input rounded-[5px] focus:outline-none text-foreground text-sm bg-card"
             />
             </div>
 
             {/* Final Rate */}
             <div>
-            <label className="block text-sm text-[#0E3B4C] mb-1 font-medium">Final Rate</label>
+            <label className="block text-sm text-foreground mb-1 font-medium">Final Rate</label>
             <input
                 type="text"
                 value={finalRate.toFixed(2)}
                 readOnly
-                className="w-full p-2 border border-gray-300 rounded-[5px] focus:outline-none text-[#0E3B4C] text-sm"
+                className="w-full p-2 border border-input rounded-[5px] focus:outline-none text-foreground text-sm bg-card"
             />
             </div>
 
             {/* Buttons */}
             <div className="flex justify-end gap-2 mt-6">
             <Button
-                className="bg-[#36C6F3] hover:bg-[#2a9cbf] text-white text-sm font-medium rounded-sm px-4 py-2"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium rounded-sm px-4 py-2"
                 onClick={handleSave}
             >
                 Save New Rate

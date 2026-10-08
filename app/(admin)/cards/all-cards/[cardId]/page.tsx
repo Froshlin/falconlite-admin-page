@@ -69,7 +69,7 @@ export default function CardTransactionsPage() {
         />
       </div>
 
-      <div className="border border-[#d7d9db] rounded-[7px] mt-8">
+      <div className="border border-border rounded-[7px] mt-8 overflow-x-auto">
         <CardTransactionTable
           transactions={filteredTransactions}
           currentPage={currentPage}
@@ -77,7 +77,7 @@ export default function CardTransactionsPage() {
         />
       </div>
 
-      <div className="flex items-center justify-between my-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 my-6">
         <PaginationControls
           currentPage={currentPage}
           totalPages={totalPages}

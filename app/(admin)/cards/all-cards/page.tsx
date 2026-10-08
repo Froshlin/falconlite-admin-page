@@ -83,9 +83,9 @@ export default function CardsPage() {
       <div className="flex justify-between items-center flex-wrap mb-8">
         {/* Card Count */}
         <div>
-          <h1 className="text-2xl font-semibold text-[#0A0E3F]">{filteredCards.length} Total Cards</h1>
+          <h1 className="text-2xl font-semibold text-foreground">{filteredCards.length} Total Cards</h1>
           {notification && (
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-muted-foreground">
               {notification.message}
             </p>
           )}
@@ -110,7 +110,7 @@ export default function CardsPage() {
       />
 
       {/* Card Table */}
-      <div className="border border-[#d7d9db] rounded-[7px] mt-8">
+      <div className="border border-border rounded-[7px] mt-8 overflow-x-auto">
         <CardTable
           cards={filteredCards}
           currentPage={currentPage}
@@ -120,7 +120,7 @@ export default function CardsPage() {
       </div>
 
       {/* Pagination and Columns */}
-      <div className="flex items-center justify-between my-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 my-6">
         <PaginationControls
           currentPage={currentPage}
           totalPages={totalPages}

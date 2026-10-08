@@ -71,7 +71,7 @@ export default function NGNAccountsPage() {
       />
 
       {/* Account Table */}
-      <div className="border border-[#d7d9db] rounded-[7px] mt-8">
+      <div className="border border-border rounded-[7px] mt-8 overflow-x-auto">
         <AccountTable
           accounts={filteredAccounts}
           currentPage={currentPage}
@@ -80,7 +80,7 @@ export default function NGNAccountsPage() {
       </div>
 
       {/* Pagination and Columns */}
-      <div className="flex items-center justify-between my-6">
+      <div className="flex flex-wrap items-center justify-between gap-4 my-6">
         <PaginationControls
           currentPage={currentPage}
           totalPages={totalPages}

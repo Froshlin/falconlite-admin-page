@@ -18,17 +18,17 @@ export const ChangePasswordModal = ({ isOpen, onClose, onSave }: ChangePasswordM
     <Modal isOpen={isOpen} onClose={onClose} title="Change Password">
       <div className="flex flex-col gap-4">
         <div>
-          <label className="block text-sm text-[#0E3B4C] mb-1 font-medium">New Password</label>
+          <label className="block text-sm text-card-foreground mb-1 font-medium">New Password</label>
           <input
             type="password"
             value={newPassword}
             onChange={(e) => setNewPassword(e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded-[5px] focus:outline-none text-[#0E3B4C] text-sm"
+            className="w-full p-2 border border-input rounded-[5px] focus:outline-none text-card-foreground text-sm"
           />
         </div>
         <div className="flex justify-end gap-2 mt-6">
           <Button
-            className="bg-[#36C6F3] hover:bg-[#2a9cbf] text-white text-sm font-medium rounded-sm px-4 py-2"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground text-sm font-medium rounded-sm px-4 py-2"
             onClick={handleSave}
           >
             Save Password

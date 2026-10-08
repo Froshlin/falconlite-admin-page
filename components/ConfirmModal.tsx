@@ -14,27 +14,27 @@ interface ConfirmModalProps {
 const ConfirmModal: React.FC<ConfirmModalProps> = ({ isOpen, onClose, onConfirm, memberName }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="sm:max-w-[425px] rounded-lg p-6 bg-white">
+      <DialogContent className="w-[90vw] sm:max-w-[425px] rounded-lg p-6 bg-card">
         <DialogHeader>
-          <DialogTitle className="text-lg font-semibold text-[#0E3B4C]">
+          <DialogTitle className="text-lg font-semibold text-card-foreground">
             Confirm Removal
           </DialogTitle>
-          <DialogDescription className="text-sm text-gray-500 mt-2">
-            Are you sure you want to remove <span className="font-medium text-[#0E3B4C]">{memberName}</span>? This action cannot be undone.
+          <DialogDescription className="text-sm text-muted-foreground mt-2">
+            Are you sure you want to remove <span className="font-medium text-card-foreground">{memberName}</span>? This action cannot be undone.
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="mt-6 flex justify-end gap-3">
           <Button
             variant="outline"
             onClick={onClose}
-            className="text-[#0E3B4C] border-gray-300 cursor-pointer"
+            className="text-card-foreground border-border cursor-pointer"
           >
             Cancel
           </Button>
           <Button
             variant="destructive"
             onClick={onConfirm}
-            className="bg-[#E82828] hover:bg-[#c72020] text-white cursor-pointer"
+            className="bg-destructive hover:bg-destructive/90 text-white cursor-pointer"
           >
             Remove
           </Button>

@@ -19,11 +19,11 @@ const CustomDateInput = forwardRef(({ value, onClick }: any, ref: any) => (
       onClick={onClick}
       readOnly
       placeholder="mm/dd/yyyy"
-      className="max-w-full w-[253px] px-3 py-2 border border-gray-300 rounded text-[13px] text-gray-500"
+      className="max-w-full w-full sm:w-[253px] px-3 py-2 border border-input rounded text-[13px] text-muted-foreground"
     />
     <Calendar
       onClick={onClick}
-      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground cursor-pointer"
       size={20}
     />
   </div>
@@ -92,7 +92,7 @@ export const CustomerFilterModal = ({
   }, [timeRange]);
 
   return (
-    <div className="flex items-center gap-2 border border-[#8B9DA4] [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
+    <div className="flex items-center gap-2 border border-border [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
       {/* Time Range Tabs */}
       <Tabs
         value={selectedTab}
@@ -102,25 +102,25 @@ export const CustomerFilterModal = ({
         <TabsList className="flex w-auto bg-transparent p-0">
           <TabsTrigger
             value="yesterday"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             Yesterday
           </TabsTrigger>
           <TabsTrigger
             value="today"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             Today
           </TabsTrigger>
           <TabsTrigger
             value="this-week"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             This Week
           </TabsTrigger>
           <TabsTrigger
             value="this-month"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             This Month
           </TabsTrigger>
@@ -150,34 +150,34 @@ export const CustomerFilterModal = ({
           ></div>
 
           {/* Modal Content */}
-          <div className="relative bg-white rounded-lg w-full max-w-[604px] md:ml-auto md:mr-10 shadow-lg">
-            <div className="flex justify-between items-center border-b border-[#d7d9db] pt-12 pb-4 px-6">
-              <h2 className="text-[16px] font-medium text-[#8B9DA4]">
+          <div className="relative bg-card rounded-lg w-[90vw] max-w-[604px] md:ml-auto md:mr-10 shadow-lg">
+            <div className="flex justify-between items-center border-b border-border pt-12 pb-4 px-6">
+              <h2 className="text-[16px] font-medium text-muted-foreground">
                 Filter by
               </h2>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="text-[#0E3B4C] border border-[rgba(135,140,141,0.5)] py-2 px-4 rounded-sm text-[12px] font-medium flex items-center gap-1 cursor-pointer"
+                className="text-card-foreground border border-border py-2 px-4 rounded-sm text-[12px] font-medium flex items-center gap-1 cursor-pointer"
               >
                 Close
-                <X size={15} className="text-[#0E3B4C] font-medium" />
+                <X size={15} className="text-card-foreground font-medium" />
               </button>
             </div>
 
             <div className="p-6 space-y-6">
               {/* Date Range Buttons */}
               <div>
-                <h3 className="text-[13px] font-medium text-[#0A0E3F] mb-2">
+                <h3 className="text-[13px] font-medium text-card-foreground mb-2">
                   Choose Data Range
                 </h3>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                   <button
                     onClick={() => handleDateRangeClick('last-week')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
                       filter.dateRange === 'last-week'
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     Last Week
                   </button>
@@ -185,9 +185,9 @@ export const CustomerFilterModal = ({
                     onClick={() => handleDateRangeClick('last-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
                       filter.dateRange === 'last-month'
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     Last Month
                   </button>
@@ -195,9 +195,9 @@ export const CustomerFilterModal = ({
                     onClick={() => handleDateRangeClick('last-2-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
                       filter.dateRange === 'last-2-month'
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     Last 2 Month
                   </button>
@@ -205,9 +205,9 @@ export const CustomerFilterModal = ({
                     onClick={() => handleDateRangeClick('last-3-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
                       filter.dateRange === 'last-3-month'
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     Last 3 Month
                   </button>
@@ -215,9 +215,9 @@ export const CustomerFilterModal = ({
               </div>
 
               {/* Start and End Date */}
-              <div className="grid grid-cols-2 w-full gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 w-full gap-4">
                 <div>
-                  <label className="text-[13px] font-medium text-[#0A0E3F] mb-2 block">
+                  <label className="text-[13px] font-medium text-card-foreground mb-2 block">
                     Start Date
                   </label>
                   <DatePicker
@@ -229,7 +229,7 @@ export const CustomerFilterModal = ({
                   />
                 </div>
                 <div>
-                  <label className="text-[13px] font-medium text-[#0A0E3F] mb-2 block">
+                  <label className="text-[13px] font-medium text-card-foreground mb-2 block">
                     End Date
                   </label>
                   <DatePicker
@@ -244,7 +244,7 @@ export const CustomerFilterModal = ({
 
               {/* First Name */}
               <div>
-                <label className="text-[13px] font-medium text-[#0A0E3F] mb-2 block">
+                <label className="text-[13px] font-medium text-card-foreground mb-2 block">
                   First Name
                 </label>
                 <input
@@ -254,13 +254,13 @@ export const CustomerFilterModal = ({
                   onChange={(e) =>
                     setFilter({ ...filter, firstName: e.target.value })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded text-[13px] text-gray-500"
+                  className="w-full px-3 py-2 border border-input rounded text-[13px] text-muted-foreground"
                 />
               </div>
 
               {/* Last Name */}
               <div>
-                <label className="text-[13px] font-medium text-[#0A0E3F] mb-2 block">
+                <label className="text-[13px] font-medium text-card-foreground mb-2 block">
                   Last Name
                 </label>
                 <input
@@ -270,13 +270,13 @@ export const CustomerFilterModal = ({
                   onChange={(e) =>
                     setFilter({ ...filter, lastName: e.target.value })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded text-[13px] text-gray-500"
+                  className="w-full px-3 py-2 border border-input rounded text-[13px] text-muted-foreground"
                 />
               </div>
 
               {/* Email */}
               <div>
-                <label className="text-[13px] font-medium text-[#0A0E3F] mb-2 block">
+                <label className="text-[13px] font-medium text-card-foreground mb-2 block">
                   Email
                 </label>
                 <input
@@ -286,14 +286,14 @@ export const CustomerFilterModal = ({
                   onChange={(e) =>
                     setFilter({ ...filter, email: e.target.value })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded text-[13px] text-gray-500"
+                  className="w-full px-3 py-2 border border-input rounded text-[13px] text-muted-foreground"
                 />
               </div>
 
               {/* Apply Filter Button */}
               <button
                 onClick={handleApplyFilter}
-                className="w-[183px] h-[43px] bg-[#36C6F3] text-white py-2 rounded text-[13px] font-medium"
+                className="w-full sm:w-[183px] h-[43px] bg-primary text-primary-foreground py-2 rounded text-[13px] font-medium"
               >
                 Apply Filter
               </button>

@@ -30,7 +30,7 @@ export const CardCustomerTable = ({ customers, currentPage, itemsPerPage }: Card
       case 'Active':
         return 'bg-[rgba(15,213,130,0.1)] text-[#0FD582] text-[10px] font-semibold px-[10px] py-[5px] w-[88px] h-[25px] rounded-[30px]';
       default:
-        return 'bg-[rgba(128,128,128,0.3)] text-gray-600 text-[10px] font-semibold px-[10px] py-[5px] w-[88px] h-[25px] rounded-[30px]';
+        return 'bg-muted text-muted-foreground text-[10px] font-semibold px-[10px] py-[5px] w-[88px] h-[25px] rounded-[30px]';
     }
   };
 
@@ -47,14 +47,14 @@ export const CardCustomerTable = ({ customers, currentPage, itemsPerPage }: Card
       </TableHeader>
       <TableBody>
         {paginatedCustomers.map((customer, index) => (
-          <TableRow key={customer.id} className={index % 2 === 0 ? 'bg-[#F8FCFF] border-b-0' : 'bg-[#FFFFFF] border-b-0'}>
+          <TableRow key={customer.id} className={index % 2 === 0 ? 'bg-muted/30 border-b-0' : 'bg-card border-b-0'}>
             <TableCell className="py-5">{customer.customerName}</TableCell>
             <TableCell className="py-5">{customer.country}</TableCell>
             <TableCell className="flex items-center gap-2 py-5">
               <span>{customer.phoneNo}</span>
-              <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
+              <div className="flex items-center justify-center w-6 h-6 bg-primary/10 rounded-full">
                 {copiedId === customer.id ? (
-                  <CheckCircle className="text-[#36C6F3]" size={16} />
+                  <CheckCircle className="text-primary" size={16} />
                 ) : (
                   <Image
                     className="cursor-pointer"
@@ -73,7 +73,7 @@ export const CardCustomerTable = ({ customers, currentPage, itemsPerPage }: Card
               </span>
             </TableCell>
             <TableCell className="text-right">
-              <button className="text-[#36C6F3] text-sm">View Details</button>
+              <button className="text-primary text-sm">View Details</button>
             </TableCell>
           </TableRow>
         ))}

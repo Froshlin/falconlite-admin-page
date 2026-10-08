@@ -75,16 +75,16 @@ export default function AuditLogsPage() {
       {/* Header */}
       <div className="flex justify-between items-center flex-wrap gap-4 mb-4 mt-6">
         <div>
-          <h1 className="text-2xl font-bold text-[#0E3B4C]">Audit Logs</h1>
-          <p className="text-sm text-gray-500">{notification}</p>
+          <h1 className="text-2xl font-bold text-foreground">Audit Logs</h1>
+          <p className="text-sm text-muted-foreground">{notification}</p>
         </div>
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-8 flex-wrap">
           <div className="flex items-center gap-1">
             <Switch checked={isLive} onCheckedChange={handleToggleLive}/>
-            <span className="text-[20px] font-medium text-[#0E3B4C]">Live</span>
+            <span className="text-[20px] font-medium text-foreground">Live</span>
           </div>
           <Button
-            className="bg-[#36C6F3] hover:bg-[#2a9cbf] w-[140px] h-[46px] [@media(max-width:420px)]:w-[100px] rounded-sm text-white flex items-center gap-1 cursor-pointer"
+            className="bg-primary hover:bg-primary/90 w-[140px] h-[46px] [@media(max-width:420px)]:w-[100px] rounded-sm text-primary-foreground flex items-center gap-1 cursor-pointer"
             onClick={handleExport}
           >
             <span className='text-sm font-medium'>Export</span>
@@ -103,7 +103,7 @@ export default function AuditLogsPage() {
       </div>
 
       {/* Audit Logs Table */}
-      <div className="border border-[#d7d9db] rounded-[7px] mt-8">
+      <div className="border border-border rounded-[7px] mt-8 overflow-x-auto">
         <AuditLogTable
           auditLogs={filteredAuditLogs}
           currentPage={currentPage}

@@ -38,7 +38,7 @@ export const PndCustomerTable = ({ customers, currentPage, itemsPerPage }: PndCu
           </TableRow>
         ) : (
           paginatedCustomers.map((customer, index) => (
-            <TableRow key={customer.id} className={index % 2 === 0 ? 'bg-[#F8FCFF] border-b-0' : 'bg-[#FFFFFF] border-b-0'}>
+            <TableRow key={customer.id} className={index % 2 === 0 ? 'bg-muted/40 border-b-0' : 'bg-card border-b-0'}>
               <TableCell className="py-5 flex items-center gap-2">
                 <input type="checkbox" className="mr-2" />
                 {customer.id}

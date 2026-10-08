@@ -54,15 +54,15 @@ const TeamManagement = () => {
 
   return (
     <div className="py-6">
-      <div className="flex justify-between md:items-center items-start mb-4 mt-6">
+      <div className="flex justify-between flex-wrap gap-4 md:items-center items-start mb-4 mt-6">
         <div>
-          <h1 className="md:text-2xl text-[14px] font-semibold text-[#0E3B4C]">
+          <h1 className="md:text-2xl text-[14px] font-semibold text-foreground">
             Team Management
           </h1>
-          <p className="md:text-sm text-[10px] text-gray-500">Add and remove team members</p>
+          <p className="md:text-sm text-[10px] text-muted-foreground">Add and remove team members</p>
         </div>
         <Button
-          className="bg-[#36C6F3] hover:bg-[#2a9cbf] text-white md:w-[189px] md:h-[46px] w-[98px] h-[30px] rounded-[4px] flex items-center justify-center gap-x-0 cursor-pointer"
+          className="bg-primary hover:bg-primary/90 text-primary-foreground md:w-[189px] md:h-[46px] w-[98px] h-[30px] rounded-[4px] flex items-center justify-center gap-x-0 cursor-pointer"
           onClick={() => router.push('/settings/team/add-member')}
         >
           <span className='md:text-[12px] text-[9px]'>Add Member</span>
@@ -76,14 +76,14 @@ const TeamManagement = () => {
         placeholder="Search team member"
       />
 
-      <div className="border border-[#d7d9db] rounded-[7px] mt-8">
+      <div className="border border-border rounded-[7px] mt-8 overflow-x-auto">
         <TeamTable
           teamMembers={paginatedMembers}
           onRemoveMember={handleRemoveMember}
         />
       </div>
 
-      <div className="flex justify-between items-center mt-4">
+      <div className="flex justify-between items-center flex-wrap gap-4 mt-4">
         <PaginationControls
           currentPage={currentPage}
           totalPages={totalPages}

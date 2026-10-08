@@ -113,7 +113,7 @@ export const CardTable = ({ cards, currentPage, itemsPerPage, onDeleteCard }: Ca
         </TableHeader>
         <TableBody>
           {paginatedCards.map((card, index) => (
-            <TableRow key={card.id} className={index % 2 === 0 ? 'bg-[#F8FCFF] border-b-0' : 'bg-[#FFFFFF] border-b-0'}>
+            <TableRow key={card.id} className={index % 2 === 0 ? 'bg-muted/30 border-b-0' : 'bg-card border-b-0'}>
               <TableCell className="py-5">{card.cardId}</TableCell>
               <TableCell className="py-5">{card.balance}</TableCell>
               <TableCell className="py-5">{card.date}</TableCell>
@@ -123,9 +123,9 @@ export const CardTable = ({ cards, currentPage, itemsPerPage, onDeleteCard }: Ca
               <TableCell className="py-5">{card.cardType}</TableCell>
               <TableCell className="flex items-center gap-2 translate-y-3 py-[9px]">
                 <span>{card.cardNumber}</span>
-                <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
+                <div className="flex items-center justify-center w-6 h-6 bg-primary/10 rounded-full">
                   {copiedId === card.id ? (
-                    <CheckCircle className="text-[#36C6F3]" size={16} />
+                    <CheckCircle className="text-primary" size={16} />
                   ) : (
                     <Image
                       className="cursor-pointer"
@@ -155,8 +155,8 @@ export const CardTable = ({ cards, currentPage, itemsPerPage, onDeleteCard }: Ca
                     <DropdownMenuItem onClick={() => handleViewCardDetails(card.cardId)}>
                       View Card Details
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => handleDeleteCard(card.cardId)} className="flex items-center gap-2 text-[#E82828]">
-                      <Trash2 className='text-[#E82828]' size={16} /> 
+                    <DropdownMenuItem onClick={() => handleDeleteCard(card.cardId)} className="flex items-center gap-2 text-destructive">
+                      <Trash2 className='text-destructive' size={16} />
                       <span>Delete</span>
                     </DropdownMenuItem>
                   </DropdownMenuContent>
@@ -173,7 +173,7 @@ export const CardTable = ({ cards, currentPage, itemsPerPage, onDeleteCard }: Ca
         onClose={() => setIsDetailsModalOpen(false)}
         title="Card Details"
       >
-        {error && <p className="text-red-600 mb-4 text-sm">{error}</p>}
+        {error && <p className="text-destructive mb-4 text-sm">{error}</p>}
         {cardDetails ? (
           <div>
             <div className="flex justify-between items-center mb-4">
@@ -183,35 +183,35 @@ export const CardTable = ({ cards, currentPage, itemsPerPage, onDeleteCard }: Ca
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-6">
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Amount Limit</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.amountLimit}</p>
+                <p className="text-xs text-muted-foreground uppercase">Amount Limit</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.amountLimit}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Available Balance</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.availableBalance}</p>
+                <p className="text-xs text-muted-foreground uppercase">Available Balance</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.availableBalance}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Usage Limit</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.usageLimit}</p>
+                <p className="text-xs text-muted-foreground uppercase">Usage Limit</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.usageLimit}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Status</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.status === 'Active' ? 'Card - Active' : cardDetails.status}</p>
+                <p className="text-xs text-muted-foreground uppercase">Status</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.status === 'Active' ? 'Card - Active' : cardDetails.status}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Expiration</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.expiration}</p>
+                <p className="text-xs text-muted-foreground uppercase">Expiration</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.expiration}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Expiration Date</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.expirationDate}</p>
+                <p className="text-xs text-muted-foreground uppercase">Expiration Date</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.expirationDate}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Card Type</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.cardType}</p>
+                <p className="text-xs text-muted-foreground uppercase">Card Type</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.cardType}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Card Brand</p>
+                <p className="text-xs text-muted-foreground uppercase">Card Brand</p>
                 <div className="flex items-center">
                   <Image
                     src={`/${cardDetails.cardBrand.toLowerCase()}.png`}
@@ -222,93 +222,93 @@ export const CardTable = ({ cards, currentPage, itemsPerPage, onDeleteCard }: Ca
                 </div>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Physical</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.physical}</p>
+                <p className="text-xs text-muted-foreground uppercase">Physical</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.physical}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Lodged</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.physical === 'No' ? 'Yes' : 'No'}</p>
+                <p className="text-xs text-muted-foreground uppercase">Lodged</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.physical === 'No' ? 'Yes' : 'No'}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Date Created</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.dateCreated}</p>
+                <p className="text-xs text-muted-foreground uppercase">Date Created</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.dateCreated}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Purchase Type</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.purchaseType}</p>
+                <p className="text-xs text-muted-foreground uppercase">Purchase Type</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.purchaseType}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Card Class</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.cardClass}</p>
+                <p className="text-xs text-muted-foreground uppercase">Card Class</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.cardClass}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Mask PAN</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.maskedPan}</p>
+                <p className="text-xs text-muted-foreground uppercase">Mask PAN</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.maskedPan}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Sequence Number</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.sequenceNumber}</p>
+                <p className="text-xs text-muted-foreground uppercase">Sequence Number</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.sequenceNumber}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Card ID</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.cardId}</p>
+                <p className="text-xs text-muted-foreground uppercase">Card ID</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.cardId}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Lifetime Window</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.lifetimeWindow}</p>
+                <p className="text-xs text-muted-foreground uppercase">Lifetime Window</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.lifetimeWindow}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Card GUID</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.cardGuid}</p>
+                <p className="text-xs text-muted-foreground uppercase">Card GUID</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.cardGuid}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Payee</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.lifetimeWindow}</p>
+                <p className="text-xs text-muted-foreground uppercase">Payee</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.lifetimeWindow}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Order Number</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.orderNumber}</p>
+                <p className="text-xs text-muted-foreground uppercase">Order Number</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.orderNumber}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Cancelled</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.cancelled}</p>
+                <p className="text-xs text-muted-foreground uppercase">Cancelled</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.cancelled}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Cancelled Date</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.cancelledDate || '-'}</p>
+                <p className="text-xs text-muted-foreground uppercase">Cancelled Date</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.cancelledDate || '-'}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Terminated</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.terminated}</p>
+                <p className="text-xs text-muted-foreground uppercase">Terminated</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.terminated}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Terminated Date</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.terminatedDate || '-'}</p>
+                <p className="text-xs text-muted-foreground uppercase">Terminated Date</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.terminatedDate || '-'}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Blocked By</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.blockedBy || '-'}</p>
+                <p className="text-xs text-muted-foreground uppercase">Blocked By</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.blockedBy || '-'}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Deactivation Date</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.deactivationDate || '-'}</p>
+                <p className="text-xs text-muted-foreground uppercase">Deactivation Date</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.deactivationDate || '-'}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Mid Whitelist</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.midWhitelist || '-'}</p>
+                <p className="text-xs text-muted-foreground uppercase">Mid Whitelist</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.midWhitelist || '-'}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Mid Blacklist</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.midWhitelist || '-'}</p>
+                <p className="text-xs text-muted-foreground uppercase">Mid Blacklist</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.midWhitelist || '-'}</p>
               </div>
               <div>
-                <p className="text-xs text-[#6B7280] uppercase">Customer Blacklist</p>
-                <p className="text-sm font-semibold text-[#0A0E3F]">{cardDetails.customerBlacklist}</p>
+                <p className="text-xs text-muted-foreground uppercase">Customer Blacklist</p>
+                <p className="text-sm font-semibold text-card-foreground">{cardDetails.customerBlacklist}</p>
               </div>
             </div>
           </div>
         ) : (
-          <p className="text-sm text-[#0A0E3F]">Loading...</p>
+          <p className="text-sm text-card-foreground">Loading...</p>
         )}
       </Modal>
     </>

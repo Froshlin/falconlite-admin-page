@@ -149,7 +149,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="h-[calc(130vh-10px)]">
+    <div className="min-h-full">
       {menuItems.map((item) => {
         const hasChildren = item.items && item.items.length > 0;
         const isOpen = openMenu === item.title;
@@ -172,8 +172,8 @@ const Menu = () => {
             <div
               className={`flex items-center justify-between lg:px-8 px-3.5 py-0.5 mt-4 mb-5 cursor-pointer ${
                 isActive
-                  ? 'text-[#36C6F3] border-l-[5px] border-[#36C6F3]'
-                  : 'text-[#8B9DA4] hover:text-[#36C6F3]'
+                  ? 'text-primary border-l-[5px] border-primary'
+                  : 'text-muted-foreground hover:text-primary'
               }`}
               onClick={() => hasChildren && toggleMenu(item.title)}
             >
@@ -182,18 +182,18 @@ const Menu = () => {
                   {item.icon.type === 'lucide' && LucideComponent ? (
                     <LucideComponent
                       size={30}
-                      className={isActive ? 'text-[#36C6F3]' : 'text-[#8B9DA4]'}
+                      className={isActive ? 'text-primary' : 'text-muted-foreground'}
                     />
                   ) : item.icon.type === 'fontawesome' &&
                     FontAwesomeComponent ? (
                     <FontAwesomeIcon
                       icon={FontAwesomeComponent}
                       size="2x"
-                      className={isActive ? 'text-[#36C6F3]' : 'text-[#8B9DA4]'}
+                      className={isActive ? 'text-primary' : 'text-muted-foreground'}
                     />
                   ) : item.icon.type === 'inline-svg' && InlineSvgComponent ? (
                     <InlineSvgComponent
-                      fill={isActive ? '#36C6F3' : '#8B9DA4'}
+                      fill={isActive ? 'var(--primary)' : 'var(--muted-foreground)'}
                     />
                   ) : null}
                 </span>
@@ -212,7 +212,7 @@ const Menu = () => {
 
             {hasChildren && item.items && (
               <div
-                className={`lg:ml-20 ml-12 mt-1 space-y-3 border-l border-gray-300 pl-3 overflow-hidden transition-all duration-300 ease-in-out ${
+                className={`lg:ml-20 ml-12 mt-1 space-y-3 border-l border-border pl-3 overflow-hidden transition-all duration-300 ease-in-out ${
                   isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
@@ -222,8 +222,8 @@ const Menu = () => {
                     href={subItem.url}
                     className={`block text-sm ${
                       pathname === subItem.url
-                        ? 'text-[#36C6F3]'
-                        : 'text-gray-500 hover:text-[#36C6F3]'
+                        ? 'text-primary'
+                        : 'text-muted-foreground hover:text-primary'
                     }`}
                   >
                     {subItem.title}

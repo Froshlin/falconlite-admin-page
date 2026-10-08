@@ -74,7 +74,7 @@ export default function TransactionsPage() {
           <h1 className="text-2xl font-semibold">
             {filteredTransactions.length} Transactions
           </h1>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-muted-foreground">
             Showing transactions from {timeRange}
           </p>
         </div>
@@ -96,7 +96,7 @@ export default function TransactionsPage() {
       />
 
       {/* Transaction Table */}
-      <div className='border border-[#d7d9db] rounded-[7px] mt-8'>
+      <div className='border border-border rounded-[7px] mt-8 overflow-x-auto'>
         <TransactionTable
           transactions={filteredTransactions}
           currentPage={currentPage}

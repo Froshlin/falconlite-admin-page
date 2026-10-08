@@ -24,11 +24,11 @@ const CustomDateInput = forwardRef(({ value, onClick }: any, ref: any) => (
       onClick={onClick}
       readOnly
       placeholder="mm/dd/yyyy"
-      className="max-w-full w-[253px] px-3 py-2 border border-gray-300 rounded text-[13px] text-gray-500"
+      className="max-w-full w-full sm:w-[253px] px-3 py-2 border border-input rounded text-[13px] text-foreground bg-card"
     />
     <Calendar
       onClick={onClick}
-      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+      className="absolute right-3 top-1/2 transform -translate-y-1/2 text-muted-foreground cursor-pointer"
       size={20}
     />
   </div>
@@ -130,7 +130,7 @@ export const TransactionFilterModal = ({
   }, [statusFilter]);
 
   return (
-    <div className="flex items-center gap-2 border border-[#8B9DA4] [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
+    <div className="flex items-center gap-2 flex-wrap border border-border [@media(max-width:498px)]:max-w-full md:px-4 px-1 py-4 rounded-[8px] overflow-x-auto">
       {/* Time Range Tabs */}
       <Tabs
         value={selectedTab}
@@ -140,25 +140,25 @@ export const TransactionFilterModal = ({
         <TabsList className="flex w-auto bg-transparent p-0">
           <TabsTrigger
             value="yesterday"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             Yesterday
           </TabsTrigger>
           <TabsTrigger
             value="today"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             Today
           </TabsTrigger>
           <TabsTrigger
             value="this-week"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             This Week
           </TabsTrigger>
           <TabsTrigger
             value="this-month"
-            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-[#36C6F3] data-[state=active]:text-white data-[state=inactive]:text-[#8B9DA4] cursor-pointer"
+            className="h-[32px] px-4 py-2 text-sm font-medium rounded-[5px] data-[state=active]:bg-primary data-[state=active]:text-primary-foreground data-[state=inactive]:text-muted-foreground cursor-pointer"
           >
             This Month
           </TabsTrigger>
@@ -188,34 +188,34 @@ export const TransactionFilterModal = ({
           ></div>
 
           {/* Modal Content */}
-          <div className="relative bg-white rounded-lg w-full max-w-[604px] md:ml-auto md:mr-10 shadow-lg">
-            <div className="flex justify-between items-center border-b border-[#d7d9db] pt-12 pb-4 px-6">
-              <h2 className="text-[16px] font-medium text-[#8B9DA4]">
+          <div className="relative bg-card rounded-lg w-full max-w-[90vw] sm:max-w-[604px] md:ml-auto md:mr-10 shadow-lg">
+            <div className="flex justify-between items-center border-b border-border pt-12 pb-4 px-6">
+              <h2 className="text-[16px] font-medium text-muted-foreground">
                 Filter by
               </h2>
               <button
                 onClick={() => setIsModalOpen(false)}
-                className="text-[#0E3B4C] border border-[rgba(135,140,141,0.5)] py-2 px-4 rounded-sm text-[12px] font-medium flex items-center gap-1 cursor-pointer"
+                className="text-foreground border border-border py-2 px-4 rounded-sm text-[12px] font-medium flex items-center gap-1 cursor-pointer"
               >
                 Close
-                <X size={15} className="text-[#0E3B4C] font-medium" />
+                <X size={15} className="text-foreground font-medium" />
               </button>
             </div>
 
             <div className="p-6 space-y-6">
               {/* Date Range Buttons */}
               <div>
-                <h3 className="text-[13px] font-medium text-[#0A0E3F] mb-2">
+                <h3 className="text-[13px] font-medium text-foreground mb-2">
                   Choose Data Range
                 </h3>
-                <div className="flex gap-2">
+                <div className="flex gap-2 flex-wrap">
                   <button
                     onClick={() => handleDateRangeClick('last-week')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
                       filter.dateRange === 'last-week'
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     Last Week
                   </button>
@@ -223,9 +223,9 @@ export const TransactionFilterModal = ({
                     onClick={() => handleDateRangeClick('last-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
                       filter.dateRange === 'last-month'
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     Last Month
                   </button>
@@ -233,9 +233,9 @@ export const TransactionFilterModal = ({
                     onClick={() => handleDateRangeClick('last-2-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
                       filter.dateRange === 'last-2-month'
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     Last 2 Month
                   </button>
@@ -243,9 +243,9 @@ export const TransactionFilterModal = ({
                     onClick={() => handleDateRangeClick('last-3-month')}
                     className={`cursor-pointer px-4 py-2 text-sm rounded border ${
                       filter.dateRange === 'last-3-month'
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     Last 3 Month
                   </button>
@@ -253,9 +253,9 @@ export const TransactionFilterModal = ({
               </div>
 
               {/* Start and End Date */}
-              <div className="grid grid-cols-2 w-full gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 w-full gap-4">
                 <div>
-                  <label className="text-[13px] font-medium text-[#0A0E3F] mb-2 block">
+                  <label className="text-[13px] font-medium text-foreground mb-2 block">
                     Start Date
                   </label>
                   <DatePicker
@@ -267,7 +267,7 @@ export const TransactionFilterModal = ({
                   />
                 </div>
                 <div>
-                  <label className="text-[13px] font-medium text-[#0A0E3F] mb-2 block">
+                  <label className="text-[13px] font-medium text-foreground mb-2 block">
                     End Date
                   </label>
                   <DatePicker
@@ -282,7 +282,7 @@ export const TransactionFilterModal = ({
 
               {/* Card ID */}
               <div>
-                <label className="text-[13px] font-medium text-[#0A0E3F] mb-2 block">
+                <label className="text-[13px] font-medium text-foreground mb-2 block">
                   Card ID
                 </label>
                 <input
@@ -292,23 +292,23 @@ export const TransactionFilterModal = ({
                   onChange={(e) =>
                     setFilter({ ...filter, cardId: e.target.value })
                   }
-                  className="w-full px-3 py-2 border border-gray-300 rounded text-[13px] text-gray-500"
+                  className="w-full px-3 py-2 border border-input rounded text-[13px] text-foreground bg-card"
                 />
               </div>
 
               {/* Status Buttons */}
               <div>
-                <h3 className="text-[13px] font-medium text-[#0A0E3F] mb-2">
+                <h3 className="text-[13px] font-medium text-foreground mb-2">
                   Status
                 </h3>
-                <div className="flex justify-between items-center gap-2">
+                <div className="flex justify-between items-center gap-2 flex-wrap">
                   <button
                     onClick={() => handleStatusClick('')}
                     className={`cursor-pointer w-[110px] h-[31px] px-4 text-sm rounded border ${
                       filter.status === ''
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     All
                   </button>
@@ -316,9 +316,9 @@ export const TransactionFilterModal = ({
                     onClick={() => handleStatusClick('FAILED')}
                     className={`cursor-pointer w-[110px] h-[31px] px-4 text-sm rounded border ${
                       filter.status === 'FAILED'
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     Terminated
                   </button>
@@ -326,9 +326,9 @@ export const TransactionFilterModal = ({
                     onClick={() => handleStatusClick('SUCCESSFUL')}
                     className={`cursor-pointer w-[110px] h-[31px] px-4 text-sm rounded border ${
                       filter.status === 'SUCCESSFUL'
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     Active
                   </button>
@@ -336,9 +336,9 @@ export const TransactionFilterModal = ({
                     onClick={() => handleStatusClick('FROZEN')}
                     className={`cursor-pointer w-[110px] h-[31px] px-4 text-sm rounded border ${
                       filter.status === 'FROZEN'
-                        ? 'bg-[#36C6F3] text-white'
-                        : 'bg-[rgba(135,140,141,0.1)]'
-                    } text-[#878C8D]`}
+                        ? 'bg-primary text-primary-foreground'
+                        : 'bg-muted'
+                    } text-muted-foreground`}
                   >
                     Frozen
                   </button>
@@ -347,7 +347,7 @@ export const TransactionFilterModal = ({
 
               {/* Currency Type */}
               <div>
-                <label className="text-[13px] font-medium text-[#0A0E3F] mb-2 block">
+                <label className="text-[13px] font-medium text-foreground mb-2 block">
                   Currency Type
                 </label>
                 <div className="relative">
@@ -356,7 +356,7 @@ export const TransactionFilterModal = ({
                     onChange={(e) =>
                       setFilter({ ...filter, currencyType: e.target.value })
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded text-[13px] text-gray-500 appearance-none"
+                    className="w-full px-3 py-2 border border-input rounded text-[13px] text-foreground bg-card appearance-none"
                   >
                     <option value="">Select currency type</option>
                     {filterOptions.currencyTypes.map((type) => (
@@ -367,7 +367,7 @@ export const TransactionFilterModal = ({
                   </select>
                   <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
                     <svg
-                      className="w-4 h-4 text-gray-500"
+                      className="w-4 h-4 text-muted-foreground"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -385,7 +385,7 @@ export const TransactionFilterModal = ({
 
               {/* Negative Balance */}
               <div>
-                <label className="text-[13px] font-medium text-[#0A0E3F] mb-2 block">
+                <label className="text-[13px] font-medium text-foreground mb-2 block">
                   Negative Balance
                 </label>
                 <div className="relative">
@@ -394,7 +394,7 @@ export const TransactionFilterModal = ({
                     onChange={(e) =>
                       setFilter({ ...filter, negativeBalance: e.target.value })
                     }
-                    className="w-full px-3 py-2 border border-gray-300 rounded text-[13px] text-gray-500 appearance-none"
+                    className="w-full px-3 py-2 border border-input rounded text-[13px] text-foreground bg-card appearance-none"
                   >
                     <option value="">Select negative balance</option>
                     <option value="Yes">Yes</option>
@@ -402,7 +402,7 @@ export const TransactionFilterModal = ({
                   </select>
                   <div className="absolute right-3 top-1/2 transform -translate-y-1/2 pointer-events-none">
                     <svg
-                      className="w-4 h-4 text-gray-500"
+                      className="w-4 h-4 text-muted-foreground"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -421,7 +421,7 @@ export const TransactionFilterModal = ({
               {/* Apply Filter Button */}
               <button
                 onClick={handleApplyFilter}
-                className="w-[183px] h-[43px] bg-[#36C6F3] text-white py-2 rounded text-[13px] font-medium"
+                className="w-full max-w-[183px] h-[43px] bg-primary text-primary-foreground py-2 rounded text-[13px] font-medium"
               >
                 Apply Filter
               </button>

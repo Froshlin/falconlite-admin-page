@@ -23,7 +23,7 @@ const TeamTable: React.FC<TeamTableProps> = ({ teamMembers, onRemoveMember }) =>
   const getRoleStyles = (role: string) => {
     switch (role) {
       case 'Owner':
-        return 'bg-[#36C6F3] w-[68px] h-[27px] text-white text-[12px] text-center font-semibold px-[10px] py-[5px] rounded-[30px]';
+        return 'bg-primary w-[68px] h-[27px] text-primary-foreground text-[12px] text-center font-semibold px-[10px] py-[5px] rounded-[30px]';
       case 'Admin':
         return 'bg-[#0FD582] w-[68px] h-[27px] text-white text-[12px] text-center font-semibold px-[10px] py-[5px] rounded-[30px]';
       case 'Customer Support':
@@ -76,27 +76,27 @@ const TeamTable: React.FC<TeamTableProps> = ({ teamMembers, onRemoveMember }) =>
     <>
       <Table>
         <TableHeader>
-          <TableRow className="border-b border-gray-200">
-            <TableHead className="py-4 text-[#0E3B4C] font-medium text-sm">
+          <TableRow className="border-b border-border">
+            <TableHead className="py-4 text-foreground font-medium text-sm">
               <input type="checkbox" className="mr-2" />
               NAME
             </TableHead>
-            <TableHead className="py-4 text-[#0E3B4C] font-medium text-sm"></TableHead>
-            <TableHead className="py-4 text-[#0E3B4C] font-medium text-sm">EMAIL</TableHead>
-            <TableHead className="py-4 text-[#0E3B4C] font-medium text-sm">USER ROLE</TableHead>
-            <TableHead className="py-4 text-[#0E3B4C] font-medium text-sm text-center">ACTIONS</TableHead>
+            <TableHead className="py-4 text-foreground font-medium text-sm"></TableHead>
+            <TableHead className="py-4 text-foreground font-medium text-sm">EMAIL</TableHead>
+            <TableHead className="py-4 text-foreground font-medium text-sm">USER ROLE</TableHead>
+            <TableHead className="py-4 text-foreground font-medium text-sm text-center">ACTIONS</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
           {members.length === 0 ? (
             <TableRow>
-              <TableCell colSpan={4} className="text-center py-5 text-gray-500">
+              <TableCell colSpan={4} className="text-center py-5 text-muted-foreground">
                 No team members found.
               </TableCell>
             </TableRow>
           ) : (
             members.map((member) => (
-              <TableRow key={member.id} className="bg-white">
+              <TableRow key={member.id} className="bg-card">
                 <TableCell className="py-4">
                   <div className="flex items-center gap-2">
                     <input type="checkbox" className="mr-2" />
@@ -107,7 +107,7 @@ const TeamTable: React.FC<TeamTableProps> = ({ teamMembers, onRemoveMember }) =>
                       height={32}
                       className="rounded-full"
                     />
-                    <span className="text-sm text-[#0E3B4C]">{member.name}</span>
+                    <span className="text-sm text-foreground">{member.name}</span>
                   </div>
                 </TableCell>
                 <TableCell>
@@ -115,7 +115,7 @@ const TeamTable: React.FC<TeamTableProps> = ({ teamMembers, onRemoveMember }) =>
                       {member.loginStatus}
                   </span>
                 </TableCell>
-                <TableCell className="py-4 text-sm text-[#0E3B4C]">{member.email}</TableCell>
+                <TableCell className="py-4 text-sm text-foreground">{member.email}</TableCell>
                 <TableCell className="py-4">
                   <div className="flex gap-2">
                     {member.roles.map((role, key_role) => (
@@ -138,7 +138,7 @@ const TeamTable: React.FC<TeamTableProps> = ({ teamMembers, onRemoveMember }) =>
                       onClick={() => handleRemoveClick(member.id, member.name)}
                     >
                       <Image src={cancel} alt='cancel-icon' width={19} height={19}/>
-                      <span className='font-semibold text-[15px] text-[#E82828]'>Remove</span>
+                      <span className='font-semibold text-[15px] text-destructive'>Remove</span>
                     </Button>
                   </div>
                 </TableCell>

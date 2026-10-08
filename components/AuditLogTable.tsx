@@ -38,7 +38,7 @@ export const AuditLogTable = ({ auditLogs, currentPage, itemsPerPage, onViewDeta
           </TableRow>
         ) : (
           paginatedAuditLogs.map((log, index) => (
-            <TableRow key={log.id} className={index % 2 === 0 ? 'bg-[#F8FCFF] border-b-0' : 'bg-[#FFFFFF] border-b-0'}>
+            <TableRow key={log.id} className={index % 2 === 0 ? 'bg-muted/30 border-b-0' : 'bg-card border-b-0'}>
               <TableCell className="py-5">{log.member}</TableCell>
               <TableCell className="py-5">
                 <div className="flex gap-2">
@@ -47,7 +47,7 @@ export const AuditLogTable = ({ auditLogs, currentPage, itemsPerPage, onViewDeta
                       key={selected_role}
                       className={
                         role === 'Owner'
-                          ? 'bg-[#36C6F3] text-white text-[12px] font-semibold px-[15px] h-[25px] rounded-[30px] flex items-center'
+                          ? 'bg-primary text-primary-foreground text-[12px] font-semibold px-[15px] h-[25px] rounded-[30px] flex items-center'
                           : 'bg-[#0FD582] text-white text-[12px] font-semibold px-[15px] h-[25px] rounded-[30px] flex items-center'
                       }
                     >

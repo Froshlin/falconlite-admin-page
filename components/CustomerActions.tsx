@@ -82,20 +82,20 @@ export const CustomerActions = ({
   const getStatusTag = () => {
     if (tableType === 'verified') {
       return (
-        <span className="inline-flex items-center gap-1 bg-[#36C6F3] text-white px-2 py-1 rounded">
+        <span className="inline-flex items-center gap-1 bg-primary text-primary-foreground px-2 py-1 rounded">
           Verified
           <Image src={verified} alt="verified icon" width={16} height={16} />
         </span>
       );
     } else if (tableType === 'unverified') {
       return (
-        <span className="inline-flex items-center gap-1 bg-gray-200 text-gray-600 px-2 py-1 rounded">
+        <span className="inline-flex items-center gap-1 bg-muted text-muted-foreground px-2 py-1 rounded">
           Unverified
         </span>
       );
     } else {
       return (
-        <span className="inline-flex items-center gap-1 bg-gray-200 text-gray-600 px-2 py-1 rounded">
+        <span className="inline-flex items-center gap-1 bg-muted text-muted-foreground px-2 py-1 rounded">
           Post-No-Debit
         </span>
       );
@@ -117,7 +117,7 @@ export const CustomerActions = ({
             </DropdownMenuItem>
           )}
           <DropdownMenuItem
-            className="text-red-600"
+            className="text-destructive"
             onClick={() => setIsDeleteConfirmOpen(true)}
           >
             Delete
@@ -133,44 +133,44 @@ export const CustomerActions = ({
       >
         {customerDetails && (
           <div className="space-y-4">
-            <div className="flex items-center justify-between">
+            <div className="flex items-center justify-between flex-wrap gap-2">
               <div className="flex items-center gap-2">
-                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-xl">
+                <div className="w-12 h-12 bg-muted rounded-full flex items-center justify-center text-xl">
                   {customerDetails.customerName
                     .split(' ')
                     .map((n: string) => n[0])
                     .join('')}
                 </div>
                 <div>
-                  <h3 className="font-semibold">
+                  <h3 className="font-semibold text-card-foreground">
                     {customerDetails.customerName}
                   </h3>
-                  <p className="text-sm text-gray-500">{getStatusTag()}</p>
+                  <p className="text-sm text-muted-foreground">{getStatusTag()}</p>
                 </div>
               </div>
-              <p className="text-sm text-gray-500">
+              <p className="text-sm text-muted-foreground">
                 Joined on {customerDetails.joinDate}
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-y-8 gap-x-8 place-items-start">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-8 gap-x-8 place-items-start">
               <div>
-                <p className="text-[14px] font-medium text-[#8B9DA4] mb-1 text-left">
+                <p className="text-[14px] font-medium text-muted-foreground mb-1 text-left">
                   Email
                 </p>
-                <p className="text-[14px] text-[#0A0E3F]">
+                <p className="text-[14px] text-card-foreground">
                   {customerDetails.email}
                 </p>
               </div>
               <div>
-                <p className="text-[14px] font-medium text-[#8B9DA4] mb-1">
+                <p className="text-[14px] font-medium text-muted-foreground mb-1">
                   Date of Birth
                 </p>
-                <p className="text-[14px] text-[#0A0E3F] text-left">
+                <p className="text-[14px] text-card-foreground text-left">
                   {customerDetails.dateOfBirth}
                 </p>
               </div>
               <div>
-                <p className="text-[14px] font-medium text-[#8B9DA4] mb-1">
+                <p className="text-[14px] font-medium text-muted-foreground mb-1">
                   Gender
                 </p>
                 <div className="flex items-center gap-2">
@@ -180,24 +180,24 @@ export const CustomerActions = ({
                 </div>
               </div>
               <div>
-                <p className="text-[14px] font-medium text-[#8B9DA4] mb-1 text-left">
+                <p className="text-[14px] font-medium text-muted-foreground mb-1 text-left">
                   User ID
                 </p>
-                <p className="text-[14px] text-[#0A0E3F]">
+                <p className="text-[14px] text-card-foreground">
                   {customerDetails.userId}
                 </p>
               </div>
               <div>
-                <p className="text-[14px] font-medium text-[#8B9DA4] mb-1 text-left">
+                <p className="text-[14px] font-medium text-muted-foreground mb-1 text-left">
                   Phone Number
                 </p>
                 <div className="flex items-center gap-2">
-                  <p className="text-[14px] text-[#0A0E3F]">
+                  <p className="text-[14px] text-card-foreground">
                     {customerDetails.phoneNumber}
                   </p>
-                  <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
+                  <div className="flex items-center justify-center w-6 h-6 bg-primary/10 rounded-full">
                     {copiedId === 'phone' ? (
-                      <CheckCircle className="text-[#36C6F3]" size={16} />
+                      <CheckCircle className="text-primary" size={16} />
                     ) : (
                       <Image
                         className="cursor-pointer"
@@ -214,24 +214,24 @@ export const CustomerActions = ({
                 </div>
               </div>
               <div>
-                <p className="text-[14px] font-medium text-[#8B9DA4] mb-1 text-left">
+                <p className="text-[14px] font-medium text-muted-foreground mb-1 text-left">
                   Country
                 </p>
-                <p className="text-[14px] text-[#0A0E3F]">
+                <p className="text-[14px] text-card-foreground">
                   {customerDetails.country}
                 </p>
               </div>
               <div>
-                <p className="text-[14px] font-medium text-[#8B9DA4] mb-1 text-left">
+                <p className="text-[14px] font-medium text-muted-foreground mb-1 text-left">
                   Unique ID
                 </p>
                 <div className="flex items-center gap-2">
-                  <p className="text-[14px] text-[#0A0E3F]">
+                  <p className="text-[14px] text-card-foreground">
                     {customerDetails.uniqueId}
                   </p>
-                  <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
+                  <div className="flex items-center justify-center w-6 h-6 bg-primary/10 rounded-full">
                     {copiedId === 'uniqueId' ? (
-                      <CheckCircle className="text-[#36C6F3]" size={16} />
+                      <CheckCircle className="text-primary" size={16} />
                     ) : (
                       <Image
                         className="cursor-pointer"
@@ -248,16 +248,16 @@ export const CustomerActions = ({
                 </div>
               </div>
               <div>
-                <p className="text-[14px] font-medium text-[#8B9DA4] mb-1 text-left">
+                <p className="text-[14px] font-medium text-muted-foreground mb-1 text-left">
                   Issued Bank Account
                 </p>
                 <div className="flex items-center gap-2">
-                  <p className="text-[14px] text-[#0A0E3F]">
+                  <p className="text-[14px] text-card-foreground">
                     {customerDetails.bankAccount}
                   </p>
-                  <div className="flex items-center justify-center w-6 h-6 bg-[#E6F0FA] rounded-full">
+                  <div className="flex items-center justify-center w-6 h-6 bg-primary/10 rounded-full">
                     {copiedId === 'bankAccount' ? (
-                      <CheckCircle className="text-[#36C6F3]" size={16} />
+                      <CheckCircle className="text-primary" size={16} />
                     ) : (
                       <Image
                         className="cursor-pointer"
@@ -274,10 +274,10 @@ export const CustomerActions = ({
                 </div>
               </div>
               <div>
-                <p className="text-[14px] font-medium text-[#8B9DA4] mb-1 text-left">
+                <p className="text-[14px] font-medium text-muted-foreground mb-1 text-left">
                   Bank Name
                 </p>
-                <p className="text-[14px] text-[#0A0E3F]">
+                <p className="text-[14px] text-card-foreground">
                   {customerDetails.bankName}
                 </p>
               </div>
