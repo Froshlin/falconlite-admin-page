@@ -1,7 +1,10 @@
 'use client';
 
 import Image from 'next/image';
-import { Montserrat } from 'next/font/google';
+import '@fontsource/montserrat/400.css';
+import '@fontsource/montserrat/500.css';
+import '@fontsource/montserrat/600.css';
+import '@fontsource/montserrat/700.css';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import Logo from '@/public/images/main-logo.png';
@@ -9,12 +12,6 @@ import Menu from '@/components/Menu';
 import Navbar from '@/components/Navbar';
 import '@/styles/globals.css';
 import { Menu as MenuIcon, X } from 'lucide-react';
-
-const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-});
 
 export default function DashboardLayout({
   children,
@@ -28,7 +25,7 @@ export default function DashboardLayout({
   };
 
   return (
-    <div className={`h-screen flex flex-col bg-background ${montserrat.className}`}>
+    <div className="h-screen flex flex-col bg-background font-montserrat">
       {/* Container Holding Navbar and Logo */}
       <div className="flex fixed z-2200 w-full bg-card border-b border-border">
         <div className="md:w-[20%] bg-sidebar py-4 flex items-center px-4">

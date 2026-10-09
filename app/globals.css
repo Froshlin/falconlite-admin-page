@@ -123,3 +123,7 @@
     @apply bg-[var(--background)] text-[var(--foreground)];
   }
 }
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
